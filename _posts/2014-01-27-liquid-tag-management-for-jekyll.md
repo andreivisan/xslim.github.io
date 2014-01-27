@@ -18,6 +18,7 @@ So her's a few hacks how to make a tag management for your blog:
 A solution to show a tag cloud that can be ound in the net, and modified to suit my needs:
 
 ``` html
+{% raw %}
   <ul class="tags">
 {% for tag in site.tags %}
     <li style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 70  }}%">
@@ -27,6 +28,7 @@ A solution to show a tag cloud that can be ound in the net, and modified to suit
     </li>
 {% endfor %}
   </ul>
+{% endraw %}
 ```
 
 <!-- more -->
@@ -51,6 +53,7 @@ And you might add some style to it:
 I'v created a file `post_tags.html` in `_includes`:
 
 ``` html
+{% raw %}
 <span class="categories">
   {% if post %}
     {% assign tags = post.tags %}
@@ -61,12 +64,15 @@ I'v created a file `post_tags.html` in `_includes`:
   <a href="/tags/#{{tag|slugize}}">{{tag}}</a>{% unless forloop.last %},{% endunless %}
   {% endfor %}
 </span>
+{% endraw %}
 ```
 
 and you can include it at the end (or beginning) of your post:
 
 ``` html
+{% raw %}
 {% include post_tags.html %}
+{% endraw %}
 ```
 
 ## Tag page
@@ -74,6 +80,7 @@ and you can include it at the end (or beginning) of your post:
 On the tag page we have a tag cloud and a list of articles:
 
 ``` html
+{% raw %}
 ---
 layout: page
 title: Tags
@@ -97,6 +104,7 @@ PUT THE TAG CLOUD HERE
   {% endfor %}
 {% endfor %}
 </div>
+{% endraw %}
 ```
 
 The result you can check here: [http://kalapun.com/tags/](http://kalapun.com/tags/)
