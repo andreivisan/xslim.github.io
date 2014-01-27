@@ -1,0 +1,42 @@
+---
+layout: page
+title: Blog Archive
+footer: false
+---
+
+<div id="tag-cloud">
+  <style>
+  .tags {
+    list-style: none;
+    padding: 0;
+    text-align: justify; 
+    font-size: 20px;
+  }
+  .tags li {
+    display: inline-block;
+    margin: 0 25px 25px 0; 
+  }
+  </style>
+  <ul class="tags">
+{% for tag in site.tags %}
+    <li style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 70  }}%">
+        <a href="/tags/#{{ tag | first | slugize }}">
+            {{ tag | first }}
+        </a>
+    </li>
+{% endfor %}
+  </ul>
+</div>
+
+<div id="blog-archives">
+{% for post in site.posts reverse %}
+{% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+{% unless year == this_year %}
+  {% assign year = this_year %}
+  <h1>{{ year }}</h1>
+{% endunless %}
+<article>
+  {% include archive_post.html %}
+</article>
+{% endfor %}
+</div>

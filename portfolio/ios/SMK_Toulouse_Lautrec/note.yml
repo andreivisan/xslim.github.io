@@ -1,0 +1,9 @@
+---
+about: |
+  Art gallery interactive guide, featuring:
+  * Audio player (with lyrics)
+  * Gallery (small and big pictures)
+  * Video player (with subtitle)
+  * Calendar with events (json updates time to time)
+  * Information (Map, Memberships, Contacts) 
+role: team lead, architecture

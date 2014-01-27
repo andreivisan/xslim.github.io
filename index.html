@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<div class="span9">
+  
+  {% assign index = true %}
+  {% for post in site.posts limit: site.paginate %}
+  {% assign content = post.content %}
+    <article>
+      {% include article.html %}
+    </article>
+  {% endfor %}
+  <ul class="pager">
+    <li class="previous"><a href="/blog/page/2">&larr; Older</a></li>
+    <li><a href="/blog/archives">Blog Archives</a></li>
+  </ul>
+</div>
+<aside class="sidebar-nav span3">
+  {% include asides.html %}
+</aside>

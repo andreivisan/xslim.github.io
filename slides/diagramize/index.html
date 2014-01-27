@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title>diagramize it</title>
+
+<meta name="description" content="diagramize it">    
+
+  <meta name="author" content="Taras Kalapun" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link rel="stylesheet" href="/javascripts/reveal/css/reveal.min.css">
+  <link rel="stylesheet" href="/javascripts/reveal/css/theme/default.css" id="theme">
+
+<style type="text/css">
+.reveal section img {
+  background: white;
+  border: 0;
+  padding: 20px;
+}
+</style>
+
+<!-- For syntax highlighting -->
+  <link rel="stylesheet" href="/javascripts/reveal/lib/css/zenburn.css">
+
+ <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+  document.write( '<link rel="stylesheet" href="/javascripts/reveal/css/print/' +
+    ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + 
+    '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="/javascripts/reveal/lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+<section>
+<h1>diagramize it</h1>
+<h3>Taras Kalapun</h3>
+<p>
+<h4></h4>
+</p>
+<img src="logo.png" />
+</section>  
+
+ <!-- # -->
+<!-- ![](last-use-case.png) -->
+
+<!-- # whoami -->
+
+ <!-- // p1 -->
+
+<section id="types-of-diagrams" class="level1">
+<h1>Types of diagrams</h1>
+</section>
+<section id="section" class="level1">
+<h1></h1>
+<section id="block-diagrams" class="level2">
+<h2>Block diagrams</h2>
+<figure>
+<img src="block_yuml.png" />
+</figure>
+</section>
+</section>
+<section id="section-1" class="level1">
+<h1></h1>
+<section id="use-cases" class="level2">
+<h2>Use Cases</h2>
+<figure>
+<img src="uc_yuml.png" />
+</figure>
+</section>
+</section>
+<section id="section-2" class="level1">
+<h1></h1>
+<section id="activity" class="level2">
+<h2>Activity</h2>
+<figure>
+<img src="activity_pic.png" />
+</figure>
+</section>
+</section>
+<section id="section-3" class="level1">
+<h1></h1>
+<section id="sequence" class="level2">
+<h2>Sequence</h2>
+<figure>
+<img src="seq_seqdiag.png" />
+</figure>
+<!-- // p 2 -->
+
+<!-- //Block -->
+
+</section>
+</section>
+<section id="block-diagrams-1" class="level1">
+<h1>Block diagrams</h1>
+</section>
+<section id="section-4" class="level1">
+<h1></h1>
+<section id="yuml.me" class="level2">
+<h2>yuml.me</h2>
+<pre><code>[Customer]&lt;&gt;-orders*&gt;[Order]
+[Order]++-0..*&gt;[LineItem]
+[Order]-[note:Aggregate root.]</code></pre>
+<figure>
+<img src="block_yuml.png" />
+</figure>
+</section>
+</section>
+<section id="section-5" class="level1">
+<h1></h1>
+<section id="blockdiag" class="level2">
+<h2>blockdiag</h2>
+<pre><code>blockdiag {
+   A -&gt; B -&gt; C -&gt; D;
+   A -&gt; E -&gt; F -&gt; G;
+}</code></pre>
+<figure>
+<img src="block_blockdiag.png" />
+</figure>
+</section>
+</section>
+<section id="section-6" class="level1">
+<h1></h1>
+<section id="blockdiag-1" class="level2">
+<h2>blockdiag</h2>
+<pre><code>blockdiag {
+  WeatherApi [shape = ellipse];
+  AdMob [shape = ellipse];
+  Cloud [shape = cloud];
+  User [shape = actor];
+
+  WeatherApi -&gt; Cloud
+  AdMob -&gt; Cloud
+  Cloud -&gt; App
+  App -&gt; User
+}</code></pre>
+<figure>
+<img src="block_blockdiag2_s.png" />
+</figure>
+</section>
+</section>
+<section id="section-7" class="level1">
+<h1></h1>
+<section id="graphviz" class="level2">
+<h2>Graphviz</h2>
+<figure>
+<img src="block_graphviz_s.png" />
+</figure>
+</section>
+</section>
+<section id="section-8" class="level1">
+<h1></h1>
+<section id="graphviz-1" class="level2">
+<h2>Graphviz</h2>
+<pre><code>digraph G {
+    ranksep = 1
+    rankdir = TD
+    node [
+        shape = &quot;record&quot;
+        height = 0.50
+        fontsize = 10
+        margin = 0.20,0.05
+    ]
+    A2 [
+        label = &quot;Customer]&quot;
+        style = &quot;filled&quot;
+        fillcolor = &quot;&quot;
+    ]
+    node [
+        shape = &quot;record&quot;
+        height = 0.50
+        fontsize = 10
+        margin = 0.20,0.05
+    ]
+    A48 [
+        label = &quot;Order]&quot;
+        style = &quot;filled&quot;
+        fillcolor = &quot;&quot;
+    ]
+    edge [
+        shape = &quot;edge&quot;
+        dir = &quot;both&quot;
+        style = &quot;solid&quot;
+        arrowtail = &quot;odiamond&quot;
+        taillabel = &quot;1&quot;
+        arrowhead = &quot;vee&quot;
+        headlabel = &quot;&gt;&quot;
+        labeldistance = 2
+        fontsize = 10
+    ]
+    A2 -&gt; A48
+    node [
+        shape = &quot;record&quot;
+        height = 0.50
+        fontsize = 10
+        margin = 0.20,0.05
+    ]
+    A94 [
+        label = &quot;LineItem]&quot;
+        style = &quot;filled&quot;
+        fillcolor = &quot;&quot;
+    ]
+    edge [
+        shape = &quot;edge&quot;
+        dir = &quot;both&quot;
+        style = &quot;solid&quot;
+        arrowtail = &quot;diamond&quot;
+        taillabel = &quot;*&quot;
+        arrowhead = &quot;vee&quot;
+        headlabel = &quot;&gt;&quot;
+        labeldistance = 2
+        fontsize = 10
+    ]
+    A48 -&gt; A94
+    node [
+        shape = &quot;record&quot;
+        height = 0.50
+        fontsize = 10
+        margin = 0.20,0.05
+    ]
+    A143 [
+        label = &quot;DeliveryMethod]&quot;
+        style = &quot;filled&quot;
+        fillcolor = &quot;&quot;
+    ]
+    edge [
+        shape = &quot;edge&quot;
+        dir = &quot;both&quot;
+        style = &quot;solid&quot;
+        arrowtail = &quot;none&quot;
+        taillabel = &quot;&quot;
+        arrowhead = &quot;vee&quot;
+        headlabel = &quot;&gt;&quot;
+        labeldistance = 2
+        fontsize = 10
+    ]
+    A48 -&gt; A143
+    node [
+        shape = &quot;record&quot;
+        height = 0.50
+        fontsize = 10
+        margin = 0.20,0.05
+    ]
+    A199 [
+        label = &quot;Product]&quot;
+        style = &quot;filled&quot;
+        fillcolor = &quot;&quot;
+    ]
+    edge [
+        shape = &quot;edge&quot;
+        dir = &quot;both&quot;
+        style = &quot;solid&quot;
+        arrowtail = &quot;none&quot;
+        taillabel = &quot;*&quot;
+        arrowhead = &quot;vee&quot;
+        headlabel = &quot;&gt;&quot;
+        labeldistance = 2
+        fontsize = 10
+    ]
+    A48 -&gt; A199
+    node [
+        shape = &quot;record&quot;
+        height = 0.50
+        fontsize = 10
+        margin = 0.20,0.05
+    ]
+    A248 [
+        label = &quot;Category&quot;
+        style = &quot;filled&quot;
+        fillcolor = &quot;&quot;
+    ]
+    A298 [
+        label = &quot;National&quot;
+        style = &quot;filled&quot;
+        fillcolor = &quot;&quot;
+    ]
+    A348 [
+        label = &quot;International&quot;
+        style = &quot;filled&quot;
+        fillcolor = &quot;&quot;
+    ]
+    A143 -&gt; A298 -&gt; A348 -&gt; A248
+}</code></pre>
+<!-- //Use Case diagrams -->
+
+</section>
+</section>
+<section id="use-case-diagrams" class="level1">
+<h1>Use Case diagrams</h1>
+</section>
+<section id="section-9" class="level1">
+<h1></h1>
+<section id="yuml.me-1" class="level2">
+<h2>yuml.me</h2>
+<pre><code>[Customer]-(Make Cup of Tea)
+(Make Cup of Tea)&lt;(Add Milk)
+(Make Cup of Tea)&gt;(Add Tea Bag)</code></pre>
+<figure>
+<img src="uc_yuml2.png" />
+</figure>
+</section>
+</section>
+<section id="section-10" class="level1">
+<h1></h1>
+<section id="graphviz-2" class="level2">
+<h2>Graphviz</h2>
+<pre><code>digraph G {
+  rankdir=LR;
+
+  subgraph clusterUser {label=&quot;User&quot;; labelloc=&quot;b&quot;; peripheries=0; user};
+  user [shapefile=&quot;stick.png&quot;, peripheries=0, style=invis];
+  login [label=&quot;Log In&quot;, shape=ellipse];
+
+  user-&gt;login [arrowhead=none];
+}</code></pre>
+<figure>
+<img src="uc_graphviz.png" />
+</figure>
+<p>http://martin.elwin.com/blog/2008/05/uml-use-case-diagrams-graphviz/</p>
+</section>
+</section>
+<section id="section-11" class="level1">
+<h1></h1>
+<section id="graphviz-3" class="level2">
+<h2>Graphviz</h2>
+<figure>
+<img src="uc_graphviz2.png" />
+</figure>
+<!-- //Activity diagrams -->
+
+</section>
+</section>
+<section id="activity-diagrams" class="level1">
+<h1>Activity diagrams</h1>
+</section>
+<section id="section-12" class="level1">
+<h1></h1>
+<section id="yuml.me-2" class="level2">
+<h2>yuml.me</h2>
+<pre><code>(start)-&gt;|a|
+|a|-&gt;(Make Coffee)-&gt;|b|
+|a|-&gt;(Make Breakfast)-&gt;|b|
+|b|-&gt;&lt;c&gt;[want more coffee]-&gt;(Make Coffee)
+&lt;c&gt;[satisfied]-&gt;(end)</code></pre>
+<figure>
+<img src="activity_yuml.png" />
+</figure>
+</section>
+</section>
+<section id="section-13" class="level1">
+<h1></h1>
+<section id="gnu-pic" class="level2">
+<h2>GNU Pic</h2>
+<p>http://floppsie.comp.glam.ac.uk/Glamorgan/gaius/web/pic.html</p>
+<figure>
+<img src="activity_pic.png" />
+</figure>
+<pre><code>.PS
+ellipse &quot;document&quot;;
+arrow;
+box &quot;\fIgpic\fP(1)&quot;
+arrow;
+box width 1.2 &quot;\fIgtbl\/\fP(1) or \fIgeqn\/\fP(1)&quot; &quot;(optional)&quot; dashed;
+arrow;
+box &quot;\fIgtroff\/\fP(1)&quot;;
+arrow;
+ellipse &quot;PostScript&quot;
+.PE</code></pre>
+</section>
+</section>
+<section id="section-14" class="level1">
+<h1></h1>
+<section id="graphviz-4" class="level2">
+<h2>Graphviz</h2>
+<p><img src="activity_gv.png" /> <img src="activity_gv_s.png" /></p>
+</section>
+</section>
+<section id="section-15" class="level1">
+<h1></h1>
+<section id="graphviz-5" class="level2">
+<h2>Graphviz</h2>
+<pre><code>digraph untitled {
+  rankdir=TD
+  size=&quot;4,4&quot;
+  edge[fontsize=&quot;11&quot; arrowhead=open]
+  start[shape=circle, label=&quot;&quot;, style=filled]
+  end[shape=doublecircle, label=&quot;&quot;, style=filled]
+  action1[shape=box,style=rounded, label=&quot;action&quot;]
+  action2[shape=box,style=rounded, label=&quot;action&quot;]
+  action3[shape=box,style=rounded, label=&quot;action&quot;]
+  if1[shape=diamond, label=&quot;decision&quot;]
+  if2[shape=diamond, label=&quot;decision&quot;]
+
+  start -&gt; action1
+  action1 -&gt; if1[headport=n]
+  if1 -&gt; action2[label=&quot;condition&quot; tailport=w]
+  if1 -&gt; action3[taillabel=&quot;condition&quot; labeldistance=2.5 tailport=e]
+  action2 -&gt; if2[headport=w]
+  action3 -&gt; if2[headport=e]
+  if2 -&gt; end[taillabel=&quot;condition&quot;]
+}</code></pre>
+</section>
+</section>
+<section id="section-16" class="level1">
+<h1></h1>
+<section id="actdiag" class="level2">
+<h2>actdiag</h2>
+<pre><code>actdiag {
+  write -&gt; convert -&gt; image
+
+  lane user {
+     label = &quot;User&quot;
+     write [label = &quot;Writing reST&quot;];
+     image [label = &quot;Get diagram IMAGE&quot;];
+  }
+  lane actdiag {
+     convert [label = &quot;Convert reST to Image&quot;];
+  }
+}</code></pre>
+</section>
+</section>
+<section id="section-17" class="level1">
+<h1></h1>
+<section id="actdiag-1" class="level2">
+<h2>actdiag</h2>
+<figure>
+<img src="activity_actdiag.png" />
+</figure>
+<!-- //Sequence diagrams -->
+
+</section>
+</section>
+<section id="sequence-diagrams" class="level1">
+<h1>Sequence diagrams</h1>
+</section>
+<section id="section-18" class="level1">
+<h1></h1>
+<section id="websequencediagrams" class="level2">
+<h2>WebSequenceDiagrams</h2>
+<p>http://websequencediagrams.com</p>
+<pre><code>A-&gt;+B: text
+B--&gt;-A: text
+A-&gt;B: text2</code></pre>
+<figure>
+<img src="seq_wsd.png" />
+</figure>
+</section>
+</section>
+<section id="section-19" class="level1">
+<h1></h1>
+<section id="seqdiag" class="level2">
+<h2>Seqdiag</h2>
+<p>http://blockdiag.com/en/seqdiag/</p>
+<pre><code>seqdiag {
+  browser  -&gt; webserver [label = &quot;GET /index.html&quot;];
+  browser &lt;-- webserver;
+  browser  -&gt; webserver [label = &quot;POST /blog/comment&quot;];
+              webserver  -&gt; database [label = &quot;INSERT comment&quot;];
+              webserver &lt;-- database;
+  browser &lt;-- webserver;
+}</code></pre>
+</section>
+</section>
+<section id="section-20" class="level1">
+<h1></h1>
+<section id="seqdiag-1" class="level2">
+<h2>Seqdiag</h2>
+<figure>
+<img src="seq_seqdiag.png" />
+</figure>
+</section>
+</section>
+<section id="section-21" class="level1">
+<h1></h1>
+<section id="pic2plot" class="level2">
+<h2>pic2plot</h2>
+<p>http://projetos.edugraf.ufsc.br/2011/1/convidado/jgzeni/ProjetoFinal/JogoDeCartas/002/bin/src/UMLGraph-5.4/doc/uml-appa.html</p>
+<figure>
+<img src="seq_pic2plot.gif" />
+</figure>
+<ul>
+<li><code>brew install plotutils</code></li>
+<li>https://github.com/dspinellis/UMLGraph/blob/master/sequence.pic</li>
+</ul>
+</section>
+</section>
+<section id="section-22" class="level1">
+<h1></h1>
+<section id="pic2plot-1" class="level2">
+<h2>pic2plot</h2>
+<pre><code>.PS
+
+copy &quot;sequence.pic&quot;;
+
+boxwid = 1.1;
+movewid = 0.5;
+
+# Define the objects
+object(C,&quot;c:Client&quot;);
+pobject(T);
+object(P,&quot;p:ODBCProxy&quot;);
+
+# Message sequences
+step();
+active(C);
+cmessage(C,T,&quot;:Transaction&quot;);
+oconstraint(&quot;{Transient}&quot;);
+step();
+message(C,T,&quot;setActions(a,d,o)&quot;);
+active(T);
+message(T,P,&quot;setValues(d,3.4)&quot;);
+active(P);
+step();
+inactive(P);
+message(T,P,&quot;setValues(a,\&quot;CO\&quot;)&quot;);
+active(P);
+rmessage(T,C,&quot;committed&quot;);
+inactive(T);
+inactive(P);
+async(); dmessage(C,T);
+step();
+inactive(C);
+step();
+
+complete(C);
+complete(P);
+
+.PE</code></pre>
+<!-- //Other cool diagrams -->
+
+</section>
+</section>
+<section id="other-cool-diagrams" class="level1">
+<h1>Other cool diagrams</h1>
+</section>
+<section id="section-23" class="level1">
+<h1></h1>
+<section id="nwdiag" class="level2">
+<h2>nwdiag</h2>
+<figure>
+<img src="dia_nwdiag.png" />
+</figure>
+</section>
+</section>
+<section id="section-24" class="level1">
+<h1></h1>
+<section id="nwdiag-1" class="level2">
+<h2>nwdiag</h2>
+<pre><code>nwdiag {
+  network dmz {
+      address = &quot;210.x.x.x/24&quot;
+
+      // set multiple addresses (using comma)
+      web01 [address = &quot;210.x.x.1, 210.x.x.20&quot;];
+      web02 [address = &quot;210.x.x.2&quot;];
+  }
+  network internal {
+      address = &quot;172.x.x.x/24&quot;;
+
+      web01 [address = &quot;172.x.x.1&quot;];
+      web02 [address = &quot;172.x.x.2&quot;];
+      db01;
+      db02;
+  }
+}</code></pre>
+</section>
+</section>
+<section id="section-25" class="level1">
+<h1></h1>
+<section id="rackdiag" class="level2">
+<h2>rackdiag</h2>
+<figure>
+<img src="dia_rackdiag.png" />
+</figure>
+</section>
+</section>
+<section id="section-26" class="level1">
+<h1></h1>
+<section id="rackdiag-1" class="level2">
+<h2>rackdiag</h2>
+<pre><code>rackdiag {
+  // define height of rack
+  16U;
+
+  // define rack items
+  1: UPS [2U];
+  3: DB Server
+  4: Web Server 1  // put 2 units to rack-level 4
+  4: Web Server 2
+  5: Web Server 3
+  5: Web Server 4
+  7: Load Balancer
+  8: L3 Switch
+}</code></pre>
+</section>
+</section>
+<section id="section-27" class="level1">
+<h1></h1>
+<section id="ascii-ditaa" class="level2">
+<h2>ASCII ditaa</h2>
+<p>http://ditaa.sourceforge.net</p>
+<pre><code>    +--------+   +-------+    +-------+
+    |        | --+ ditaa +--&gt; |       |
+    |  Text  |   +-------+    |diagram|
+    |Document|   |!magic!|    |       |
+    |     {d}|   |       |    |       |
+    +---+----+   +-------+    +-------+
+        :                         ^
+        |       Lots of work      |
+        +-------------------------+</code></pre>
+<figure>
+<img src="ascii_ditaa.png" />
+</figure>
+</section>
+</section>
+<section id="section-28" class="level1">
+<h1></h1>
+<section id="graphviz-ic" class="level2">
+<h2>Graphviz IC</h2>
+<figure>
+<img src="dia_pin_graphviz.png" alt="IC Demo" /><figcaption>IC Demo</figcaption>
+</figure>
+</section>
+</section>
+<section id="section-29" class="level1">
+<h1></h1>
+<section id="graphviz-ic-1" class="level2">
+<h2>Graphviz IC</h2>
+<pre><code>digraph G {
+    graph [rankdir = LR];
+
+    node[shape=record];
+    Bar[label=&quot;{ \&quot;Bar\&quot;|{&lt;p1&gt;pin 1|&lt;p2&gt;     2|&lt;p3&gt;     3|&lt;p4&gt;     4|&lt;p5&gt;     5} }&quot;];
+    Foo[label=&quot;{ {&lt;data0&gt;data0|&lt;data1&gt;data1|&lt;data2&gt;data2|&lt;data3&gt;data3|&lt;data4&gt;data4}|\&quot;Foo\&quot; |{&lt;out0&gt;out0|&lt;out1&gt;out1|&lt;out2&gt;out2|&lt;GND&gt;gnd|&lt;ex0&gt;ex0|&lt;hi&gt;hi|&lt;lo&gt;lo} }&quot;];
+
+    Bew[label=&quot;{ {&lt;clk&gt;clk|&lt;syn&gt;syn|&lt;mux0&gt;mux0|&lt;mux1&gt;mux1|&lt;signal&gt;signal}|\&quot;Bew\&quot; |{&lt;out0&gt;out0|&lt;out1&gt;out1|&lt;out2&gt;out2} }&quot;];
+    Bar:p1 -&gt; Foo:data0;
+    Bar:p2 -&gt; Foo:data1;
+    Bar:p3 -&gt; Foo:data2;
+    Bar:p4 -&gt; Foo:data3;
+    Bar:p5 -&gt; Foo:data4;
+
+    Foo:out0 -&gt; Bew:mux0;
+    Foo:out1 -&gt; Bew:mux1;
+    Bew:clk -&gt; Foo:ex0;
+
+    Gate[label=&quot;{ {&lt;a&gt;a|&lt;b&gt;b}|OR|{&lt;ab&gt;a\|b} }&quot;];
+
+    Foo:hi -&gt; Gate:a;
+    Foo:lo -&gt; Gate:b;
+    Gate:ab -&gt; Bew:signal;
+}</code></pre>
+</section>
+</section>
+<section id="thx-q" class="level1">
+<h1>THX! <br/> Q?</h1>
+</section>
+</div>
+
+<script src="/javascripts/reveal/lib/js/head.min.js"></script>
+<script src="/javascripts/reveal/js/reveal.min.js"></script>
+
+<script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: false,
+    progress: true,
+    diagramize: true,
+    history: true,
+    center: true,
+
+  // available themes are in /css/theme
+      theme: Reveal.getQueryHash().theme || 'default', 
+  
+  // default/cube/page/concave/zoom/linear/fade/none
+      transition: Reveal.getQueryHash().transition || 'default',
+  
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: '/javascripts/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '/javascripts/reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '/javascripts/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '/javascripts/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: '/javascripts/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '/javascripts/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+  });
+
+</script>
+
+</body>
+</html>

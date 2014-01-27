@@ -1,0 +1,10 @@
+---
+---
+callback([
+{% for tag in site.tags %}
+{% capture t %}{{tag[0]}}{% endcapture %}
+{"name": "{{t}}", "value": "{{t}}"}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+])
+
+
