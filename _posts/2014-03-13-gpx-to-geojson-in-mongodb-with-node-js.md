@@ -14,7 +14,7 @@ tags:
 
 It's quite hard to find information how to work with [GeoJSON](http://geojson.org). And some information provided in the library [documentation](http://docs.mongodb.org/manual/core/2dsphere/) is quite hard to understand. So her's a few code blocks that can help someone combine [GPX](http://en.wikipedia.org/wiki/GPS_eXchange_Format), GeoJSON, MongoDB, Node.js and [Mongoose](http://mongoosejs.com).
 
-Disclamer: I'm new to Node.js and CoffeeScript, so feel free to comment my mistakes or code improvements.
+_Disclamer: I'm new to Node.js and CoffeeScript, so feel free to comment my mistakes or code improvements._
 
 ## GPX to GeoJSON
 We will use a Node.JS library [togeojson](https://github.com/mapbox/togeojson) for this. 
@@ -39,7 +39,7 @@ app.post '/routes/upload', (req, res) ->
     console.log "Uploaded " + file.originalFilename + " to " + file.path
       
     fs.readFile file.path, (err, data) ->
-        gpx = jsdom(data);
+        gpx = jsdom(data)
         converted = togeojson.gpx(gpx)
         
         # Send back converted
