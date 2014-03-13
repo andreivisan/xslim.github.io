@@ -12,12 +12,12 @@ tags:
   - GPX
 ---
 
-It's quite hard to find information how to work with GeoJSON. And some information provided in the library documentation is quite hard to understand. So her's a few code blocks that can help someone combine GPX, GeoJSON, MongoDB, Node.js and Mongoose.
+It's quite hard to find information how to work with [GeoJSON](http://geojson.org). And some information provided in the library [documentation](http://docs.mongodb.org/manual/core/2dsphere/) is quite hard to understand. So her's a few code blocks that can help someone combine [GPX](http://en.wikipedia.org/wiki/GPS_eXchange_Format), GeoJSON, MongoDB, Node.js and [Mongoose](http://mongoosejs.com).
 
 Disclamer: I'm new to Node.js and CoffeeScript, so feel free to comment my mistakes or code improvements.
 
 ## GPX to GeoJSON
-We will use a Node.JS library `togeojson` for this. 
+We will use a Node.JS library [togeojson](https://github.com/mapbox/togeojson) for this. 
 
 ``` sh
 npm install togeojson --save
@@ -47,6 +47,7 @@ app.post '/routes/upload', (req, res) ->
   else
     res.send 400
 ```
+
 ## Storing GeoJSON in MongoDB
 <!-- more -->
 
@@ -56,7 +57,7 @@ For connecting with our MongoDB from Node.js we will use `mongoose` library
 npm install mongoose --save
 ```
 
-The GeoJSON has a definition of `Feature` and `FeatureCollection`. For the simple case, we will store in our DB only the first `Feature` under the `loc`. The `Feature` itself can be a point, multi-line or a polygon. For most use-cases, working with one `Feature` is enought. Storing `FeatureCollection` will be covered in the separate post.
+The GeoJSON has a definition of `Feature` and `FeatureCollection` [(Spec)](http://geojson.org/geojson-spec.html). For the simple case, we will store in our DB only the first `Feature` under the `loc`. The `Feature` itself can be a point, multi-line or a polygon. For most use-cases, working with one `Feature` is enought. Storing `FeatureCollection` will be covered in the separate post.
 
 First, create a schema:
 
@@ -126,11 +127,11 @@ mongo -u admin -p password lennon.mongohq.com:10031/app12345
 { "loc" : { "coordinates" : [ [5.40300237,53.177886249], [5.276818363, 53.223566907] ], "type" : "LineString" }, "name" : "Waddenrace", "_id" : ObjectId("5320bc0cae1f27a09faed03b"), "__v" : 0 }
 ```
 
-So it's there. Now let's try searching with `$near`:
+So it's there. Now let's try searching with [$near](http://docs.mongodb.org/manual/reference/operator/query/near/):
 
 ``` sh
 > db.routes.find({loc: {$near : { $geometry : { type: "Point",coordinates: [5.40300237, 53.177886249]}}, $maxDistance : 500 }})
 { "loc" : { "coordinates" : [ [5.40300237,53.177886249], [5.276818363, 53.223566907] ], "type" : "LineString" }, "name" : "Waddenrace", "_id" : ObjectId("5320bc0cae1f27a09faed03b"), "__v" : 0 }
 ```
 
-In real life, I suggest using `geoNear` command instead of `$near`. Will cover this in next article.
+In real life, I suggest using [geoNear](http://docs.mongodb.org/manual/reference/command/geoNear/) command instead of `$near`. Will cover this in next article.
