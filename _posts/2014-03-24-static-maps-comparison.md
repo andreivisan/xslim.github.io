@@ -14,9 +14,9 @@ Her's my personal comparison on different static maps apis. As Example, we want 
 
 ![Google Maps](http://maps.googleapis.com/maps/api/staticmap?center=52.70468296296834,5.300731658935547&zoom=13&size=640x200&sensor=false)
 
-**Pros:** Google-style maps
-**Cons:** Max size limit (640x640)
-**Limitations:** 25 000 views per day
+- **Pros:** Google-style maps
+- **Cons:** Max size limit (640x640)
+- **Limitations:** 25 000 views per day
 
 ## Mapbox
 
@@ -24,9 +24,9 @@ Her's my personal comparison on different static maps apis. As Example, we want 
 
 Uses nicely-styled OpenStreet maps
 
-**Pros:** Very clean API
-**Cons:** Reversed lat & lon in request
-**Limitations:** 3000 map views per month (???)
+- **Pros:** Very clean API
+- **Cons:** Reversed lat & lon in request
+- **Limitations:** 3000 map views per month (???)
 
 ## Nokia Here Maps
 
@@ -34,7 +34,8 @@ Uses nicely-styled OpenStreet maps
 
 Supports 2 endpoints - short Nokia `m.nok.it` (probably deprecated), and a more modern Here `image.maps.api.here.com/mia/1.6/mapview` which require api keys.
 
-**Pros:** Has a "Map-in-map view"
-**Limitations:** 2500 views per day
+- **Pros:** Has a "Map-in-map view"
+- **Cons:** Not common for people
+- **Limitations:** 2500 views per day
 
 Any better solutions?
