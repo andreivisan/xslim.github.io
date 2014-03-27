@@ -10,7 +10,7 @@ tags:
   - javascript
 ---
 
-As you might know, since iOS 7, Apple included `JavaScriptCore` framework, that gives ability to _almost_ write apps in Java Script. So I did a small try and it seems working. 
+As you might know since iOS 7, Apple included `JavaScriptCore` framework, that gives ability to _almost_ write apps in Java Script. So I did a small trial and it seems to work. 
 
 We'll use `XCTest` for a playground.
 
@@ -31,11 +31,11 @@ First, let's try logging something
 }
 ```
 
-Now let's do some simple benchmark:
+Now let's do some simple benchmarking:
 
 <!-- more -->
 
-We'll use a `pod 'BenchmarkTestCase'` for help:
+We'll use a `pod 'BenchmarkTestCase'` to help:
 
 ``` obj-c
 #import <AZBenchmarkTestCase.h>
@@ -114,4 +114,6 @@ Yep, that's waaayyy better:
 -[JSBenchmarkTestCase test_benchNSMutableArray]    0.13410    0.00134    (1/100)
 ```
 
-Conclusion: Using Java Script to write iOS Apps is not that bad idea since iOS 7 overall.
+As you may notice, Java Script is even faster!
+
+Conclusion: Using Java Script to write iOS Apps since iOS 7 is not a bad idea overall.
