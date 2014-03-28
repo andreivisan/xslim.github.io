@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: "Let's make a Web-service with Node.js"
 comments: true
 description: null
@@ -10,9 +10,6 @@ tags:
   - coffeescript
   - heroku
   - proxy
-  - redis
-  - flickr
-  - mapbox
 ---
 
 I'll make a short walk thru how I've built a simple Web-service (proxy) with Node.js that might be usefull for developers who are started playing with it.
