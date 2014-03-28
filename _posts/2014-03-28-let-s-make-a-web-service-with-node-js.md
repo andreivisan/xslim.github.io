@@ -21,7 +21,7 @@ The source code for the app is available on [xslim/img.mrt.io](https://github.co
 
 ## Hello world? No, dump Readme
 
-First, check that your `package.json` contains `express` as a dependency in `dependencies` section and install them with `npm install`. Second, create `README.md` file with some content. Next,  create an `app.js` and fill with usefull code:
+We'll use [Express.js](http://expressjs.com) for our routes. Check that your `package.json` contains `express` as a dependency in `dependencies` section and install them with `npm install`. Create `README.md` file with some content. Next,  create an `app.js` and fill with usefull code:
 
 ``` js
 var express = require('express'),
