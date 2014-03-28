@@ -10,7 +10,7 @@ tags:
   - env
 ---
 
-So you want to use of 3-rd party web services that require API keys, but also make your app available to opensource?. Can be done. For example, if you'r using Heroku, you can put your secret keys as Environmental variables:
+So you want to use of 3-rd party web services that require API keys, but also make your app available to opensource? Can be done. For example, if you'r using Heroku, you can put your secret keys as Environmental variables:
 
 ``` sh
 $ heroku config:set KEY_MAPBOX=xxx.yyy
