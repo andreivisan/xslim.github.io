@@ -39,7 +39,7 @@ app.get("/", function(req, res, next) {
 app.listen(process.env.PORT || 3000);
 ```
 
-Now after running `node app.js` and visiting the `http://localhost:3000/` will give you a dump of your `README.md` file. Cool, huh?
+Now after running `node app.js` and visiting the `http://localhost:3000/` will give you a dump of your `README.md` file ([Real example](http://img.mrt.io/)). Cool, huh?
 
 <!-- more -->
 
@@ -106,6 +106,66 @@ And the endpoint:
 ``` coffee
 app.get "/avatar.jpg", (req, res) ->
   proxyTo "http://gravatar.com/avatar/4374a44a5a6642a24ac2975b9aa2dfe7", res
+```
+
+[Real example](http://img.mrt.io/slim.jpg)
+
+## More advanced proxy
+
+How do we deal with a variables? Let's make a proxy for google static maps. As opposed to Google API which is not that clean, we want a simple clean one. For example, we want `/map/{lat},{lon},{zoom}/{size}`:
+
+``` coffee
+app.get "/map/:lat,:lon,:zoom/:size", (req, res) ->
+  lat = req.param("lat")
+  lon = req.param("lon")
+  zoom = req.param("zoom")
+  
+  size = req.param("size")
+  size = size.split("x")
+  w = size[0]
+  h = size[1]
+  
+  url = "http://maps.googleapis.com"
+  url += "/maps/api/staticmap?center=" + lat + "," + lon + "&zoom=" + zoom + "&size=" + w + "x" + h + "&sensor=false"
+  
+  proxyTo url, res
+```
+
+[Real example](http://img.mrt.io/map/52.70468296296834,5.300731658935547,13/640x200)
+
+
+## Refactor & Extract
+
+Going with a best practice of not having all the code in one file, let's refactor the map url generation in a separate "module". Create `maps.coffee` that `exports` the function:
+
+``` coffee
+exports.static_link = (lat, lon, zoom, size, provider) ->
+  size = size.split("x")
+  url = ""
+  w = size[0]
+  h = size[1]
+  provider = "google" unless provider
+  switch provider
+    when "google"
+      key = process.env.KEY_GOOGLE
+      url = "http://maps.googleapis.com"
+      url += "/maps/api/staticmap?center=" + lat + "," + lon + "&zoom=" + zoom + "&size=" + w + "x" + h + "&sensor=false"
+      if (key.length > 0)
+        url += "&key="+key
+    when "here"
+      url = "http://m.nok.it"
+      url += "?w=" + w + "&h=" + h + "&ml=eng&nord&nodot&pip&c=" + lat + "," + lon + "&z=" + zoom + "&f=0"
+  url
+```
+
+Use it in `app.coffee`:
+
+``` coffee
+maps = require('./maps')
+
+app.get "/map/:lat,:lon,:zoom/:size", (req, res) ->
+  url = maps.static_link(req.param("lat"), req.param("lon"), req.param("zoom"), req.param("size"), req.query.t)
+  proxyTo url, res  
 ```
 
 ## Deploy to Heroku
