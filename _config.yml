@@ -76,7 +76,7 @@ kramdown:
   
 
 include: [".htaccess"]
-exclude: ["vendor",".bundle","lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "codekit-config.json", "Gemfile", "Gemfile.lock", "README.md", "node_modules", "Gruntfile.js", "package.json", "atom.xml"]
+exclude: ["vendor",".bundle","lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "codekit-config.json", "Gemfile", "Gemfile.lock", "README.md", "node_modules", "Gruntfile.js", "package.json"]
 
  # Prose settings
 prose:
