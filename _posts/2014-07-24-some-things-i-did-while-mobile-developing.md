@@ -41,6 +41,7 @@ Objective-C, C, JavaScript, a tiny bit of Java and, of cource, Swift. CoreData &
 
 ## Web services
 PHP, Ruby on Rails, Node.JS and a bit of Python. MongoDB, MySQL, Redis and others as databases.
+
 - REST APIs
 - Location services: GeoJSON, storage, search & retrival
 - custom CMSs
