@@ -9,6 +9,7 @@ tags:
 ---
 
 Her's how to get it working:
+
 ``` bash
 git clone https://github.com/jmegawarne/GPGMail.git
 cd GPGMail
