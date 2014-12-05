@@ -1,16 +1,12 @@
 ---
-layout: post
-published: true
 title: iOS and JavaScript First try
-comments: true
-description: null
-tags: 
+tags:
   - iOS
   - "obc-c"
   - javascript
 ---
 
-As you might know since iOS 7, Apple included `JavaScriptCore` framework, that gives ability to _almost_ write apps in Java Script. So I did a small trial and it seems to work. 
+As you might know since iOS 7, Apple included `JavaScriptCore` framework, that gives ability to _almost_ write apps in Java Script. So I did a small trial and it seems to work.
 
 We'll use `XCTest` for a playground.
 
@@ -21,7 +17,7 @@ First, let's try logging something
 
 - (void)testConsoleLog {
     JSContext *context = JSContext.new;
-    
+
     // Add logging support
     [context evaluateScript:@"var console = {}"];
     context[@"console"][@"log"] = ^(NSString *msg) {
@@ -63,7 +59,7 @@ Now, a Java Script implementation:
 - (void)benchJSMutableArray
 {
     JSContext *context = JSContext.new;
-    
+
     [context evaluateScript:
      @"var array = [];"
      @"var n = 500;"
@@ -93,7 +89,7 @@ Hey, what if we'll not re-create a `JSContext`, but re-use it?:
     dispatch_once(&onceToken, ^{
         context = [[JSContext alloc] init];
     });
-    
+
     [context evaluateScript:
      @"var array = [];"
      @"var n = 500;"

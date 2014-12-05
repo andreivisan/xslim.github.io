@@ -1,10 +1,6 @@
 ---
-layout: post
-published: true
 title: GPX to GeoJSON in MongoDB with Node.js
-comments: true
-description: null
-tags: 
+tags:
   - mongodb
   - nodejs
   - geoJSON
@@ -17,7 +13,7 @@ It's quite hard to find information how to work with [GeoJSON](http://geojson.or
 _Disclamer: I'm new to Node.js and CoffeeScript, so feel free to comment my mistakes or code improvements._
 
 ## GPX to GeoJSON
-We will use a Node.JS library [togeojson](https://github.com/mapbox/togeojson) for this. 
+We will use a Node.JS library [togeojson](https://github.com/mapbox/togeojson) for this.
 
 ``` sh
 npm install togeojson --save
@@ -37,11 +33,11 @@ app.post '/routes/upload', (req, res) ->
   file = req.files.file
   if file
     console.log "Uploaded " + file.originalFilename + " to " + file.path
-      
+
     fs.readFile file.path, (err, data) ->
         gpx = jsdom(data)
         converted = togeojson.gpx(gpx)
-        
+
         # Send back converted
         res.send converted
   else
@@ -102,9 +98,9 @@ app.post '/routes/upload', (req, res) ->
     fs.readFile file.path, (err, data) ->
       gpx = jsdom(data)
       converted = togeojson.gpx(gpx)
-      
+
       fs.unlinkSync file.path
-      
+
       route = new Route()
       route.geoJSON = converted
       route.save (err) ->

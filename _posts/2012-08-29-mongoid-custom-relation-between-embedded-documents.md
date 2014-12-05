@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Mongoid custom relation between embedded documents"
-date: 2012-08-29 16:40
-comments: true
 tags: [ruby,rails,mongoid,embedded]
 ---
 
@@ -12,7 +9,7 @@ Imagine we have a Mongoid document, where we have two embedded documents. And no
 has_many :acts, :foreign_key => 'event_id'
 ```
 
- 
+
 But that won't work. Mongoid is not capable at this moment to support this between embedded documents :(
 
 But we can try to implement our own, custom relationship.
@@ -34,7 +31,7 @@ class Event
 end
 ```
 
- 
+
 As you see, it embeds documents `Act` and `Area`.
 
 ``` ruby
@@ -51,25 +48,25 @@ class Act
   embedded_in :event
 ```
 
-   
-and 
+
+and
 
 ``` ruby
 class Area
   include Mongoid::Document
 
   field :name, type: String
-  
+
   embedded_in :event
 ```
 
-   
+
 ## Ralationship
 
 Let's add some custom relationship:
 
 In `Act` we want to relate to one `Area`, so we need an `field :area_id, type: String` to track that. In `Area` document we will need to track array of `acts`, so we'll add `field :act_ids, type: Array`
- 
+
 Now, let's add some custom relationship management to `Act` document
 
 ``` ruby
@@ -93,13 +90,13 @@ Now, let's add some custom relationship management to `Act` document
     return super(value) if area.nil?
 
     if value.blank?
-      area.pull(:act_ids, act_id) # remove old one        
+      area.pull(:act_ids, act_id) # remove old one
     else
       area.pull(:act_ids, act_id)
       area = find_area_by_id(value)
       area.add_to_set(:act_ids, act_id)
     end
-    
+
     super(value)
   end
 
@@ -115,7 +112,7 @@ Now, let's add some custom relationship management to `Act` document
   end
 ```
 
- 
+
 And for `Area`
 
 ``` ruby
@@ -164,5 +161,5 @@ And for `Area`
   end
 ```
 
- 
+
 Again, this post is just my attempt to make it work. If you have any comments how to improve this - let me know

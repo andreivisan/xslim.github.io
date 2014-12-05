@@ -15,13 +15,13 @@ This document contains screenshots of some of my works
 ![](Berlingske_Business/2.jpg)
 ![](Berlingske_Business/3.jpg)
 
- ## Canal+
+## Canal+
 **technologies:** live streaming, rss <br />
 **role:** part-developer <br />
 
  ![](Canal+/1.png)
 
- ## Ciklum Mobile Guide
+## Ciklum Mobile Guide
 **about:** Enterprise app, providing guidence information to clients, like contacts, places to go, POI, useful numbers <br />
 **role:** team lead, architecture <br />
 
@@ -30,7 +30,7 @@ This document contains screenshots of some of my works
 ![](Ciklum_Mobile_Guide/3.jpg)
 ![](Ciklum_Mobile_Guide/4.jpg)
 
- ## ConnEyes
+## ConnEyes
 **about:** This is a social network for iPhone. It allows to search another users by their location, type messages to users, create and check in in localities and events, schedule visits, manage complete user profile and more. <br />
 **role:** team lead, architecture <br />
 
@@ -38,20 +38,20 @@ This document contains screenshots of some of my works
 ![](ConnEyes/6.png)
 ![](ConnEyes/8.png)
 
- ## Delta TV
+## Delta TV
 
  ![](Delta_TV/1.png)
 ![](Delta_TV/2.png)
 ![](Delta_TV/3.png)
 
- ## Ekipazh
+## Ekipazh
 **about:** Food buying & delivery app <br />
 **role:** developer <br />
 
  ![](Ekipazh/3.png)
 ![](Ekipazh/7.png)
 
- ## Energy Intelligence
+## Energy Intelligence
 **about:** Energy news articles reader. Free / Paid content. <br />
 **role:** team lead, architecture, core development, API <br />
 
@@ -59,7 +59,7 @@ This document contains screenshots of some of my works
 ![](Energy_Intelligence/2.png)
 ![](Energy_Intelligence/3.png)
 
- ## Extrema Outdoor
+## Extrema Outdoor
 **about:** Events app <br />
 **technologies:** CAPTIVE login, WISPr <br />
 **role:** developer <br />
@@ -67,7 +67,7 @@ This document contains screenshots of some of my works
  ![](Extrema_Outdoor/1.jpg)
 ![](Extrema_Outdoor/2.jpg)
 
- ## Grazia
+## Grazia
 **about:** Fashion news reading <br />
 **technologies:** rss, api, caching <br />
 **role:** core development <br />
@@ -75,13 +75,13 @@ This document contains screenshots of some of my works
  ![](Grazia/1.png)
 ![](Grazia/2.png)
 
- ## HongKongEye
+## HongKongEye
 **role:** tech consultancy <br />
 
  ![](HongKongEye/1.jpg)
 ![](HongKongEye/2.jpg)
 
- ## Hummba
+## Hummba
 **about:** Audio guides on maps, Social network, Media sharing <br />
 **technologies:** audio streaming, security, maps, directions, Social <br />
 **role:** architecture, streaming, social & media parts development <br />
@@ -91,16 +91,16 @@ This document contains screenshots of some of my works
 ![](Hummba/3.jpg)
 ![](Hummba/4.jpg)
 
- ## iccoss
+## iccoss
 **about:** Super secure media synchronization <br />
 **technologies:** ssl, security, media, streaming <br />
 **role:** architecture, team lead <br />
 
  ![](iccoss/1.png)
 
- ## index.md
+## index.md
 
- ## InfoSuite
+## InfoSuite
 **about:** Presentation of complex data analysis <br />
 **technologies:** charts, bars, pies, tables, API <br />
 **role:** team lead, architecture, PM <br />
@@ -110,7 +110,7 @@ This document contains screenshots of some of my works
 ![](InfoSuite/3.png)
 ![](InfoSuite/4.png)
 
- ## Intertop
+## Intertop
 **about:** Shoes catalog, buying & delivery <br />
 **role:** developer <br />
 
@@ -118,31 +118,31 @@ This document contains screenshots of some of my works
 ![](Intertop/3.jpg)
 ![](Intertop/4.jpg)
 
- ## Karaoke
+## Karaoke
 **about:** Karaoke PoC <br />
 **role:** team lead, architecture <br />
 
  ![](Karaoke/1.png)
 
- ## KoreanEye
+## KoreanEye
 **role:** tech consultancy <br />
 
  ![](KoreanEye/screen.png)
 
- ## Lilly
+## Lilly
 **role:** team lead <br />
 
  ![](Lilly/2.png)
 ![](Lilly/5.png)
 
- ## Megger
+## Megger
 **role:** team lead <br />
 
  ![](Megger/2.png)
 ![](Megger/4.png)
 ![](Megger/8.png)
 
- ## Nordic Startup Awards
+## Nordic Startup Awards
 **role:** pm, tech consultancy <br />
 
  ![](Nordic_Startup_Awards/1.png)
@@ -150,13 +150,13 @@ This document contains screenshots of some of my works
 ![](Nordic_Startup_Awards/3.png)
 ![](Nordic_Startup_Awards/4.png)
 
- ## OpenStat
+## OpenStat
 **about:** Presenting statistical information <br />
 **role:** network implementation <br />
 
  ![](OpenStat/1.jpg)
 
- ## Pernod Ricard Annual Report
+## Pernod Ricard Annual Report
 **role:** team lead <br />
 
  ![](Pernod_Ricard_Annual_Report/0.png)
@@ -165,7 +165,7 @@ This document contains screenshots of some of my works
 ![](Pernod_Ricard_Annual_Report/3.png)
 ![](Pernod_Ricard_Annual_Report/4.png)
 
- ## qCar
+## qCar
 **about:** Connecting iOS with car hardware, showing gauges <br />
 **technologies:** hardware development, BT, WiFi, MFi <br />
 **role:** full development <br />
@@ -173,14 +173,14 @@ This document contains screenshots of some of my works
  ![](qCar/1.jpg)
 ![](qCar/2.png)
 
- ## SMK Toulouse Lautrec
+## SMK Toulouse Lautrec
 **about:**
 Art gallery interactive guide, featuring:
 * Audio player (with lyrics)
 * Gallery (small and big pictures)
 * Video player (with subtitle)
 * Calendar with events (json updates time to time)
-* Information (Map, Memberships, Contacts) 
+* Information (Map, Memberships, Contacts)
 <br />
 **role:** team lead, architecture <br />
 
@@ -189,13 +189,13 @@ Art gallery interactive guide, featuring:
 ![](SMK_Toulouse_Lautrec/3.jpg)
 ![](SMK_Toulouse_Lautrec/4.jpg)
 
- ## TheVoice
+## TheVoice
 
  ![](TheVoice/1.png)
 ![](TheVoice/2.png)
 ![](TheVoice/3.png)
 
- ## VouchAR
+## VouchAR
 **about:** The World’s first stand-alone Augmented Reality mobile discount voucher application. VouchAR will find your current location via GPS, hunt for nearby coupons and then display the results on top of video of the real world as seen through the camera on your mobile device. <br />
 **technologies:** augmented reality, mapping <br />
 **role:** tech consultant <br />
@@ -203,7 +203,7 @@ Art gallery interactive guide, featuring:
  ![](VouchAR/1.jpg)
 ![](VouchAR/2.jpg)
 
- ## Ziggo TV
+## Ziggo TV
 **about:** Live streaming, news, EPG <br />
 **role:** news, network, social, EPG developer, performance optimization <br />
 
@@ -211,5 +211,3 @@ Art gallery interactive guide, featuring:
 ![](Ziggo_TV/1.jpg)
 ![](Ziggo_TV/2.jpg)
 ![](Ziggo_TV/3.jpg)
-
- 

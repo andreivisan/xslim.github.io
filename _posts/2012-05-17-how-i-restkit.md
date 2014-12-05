@@ -1,10 +1,9 @@
 ---
-layout: post
 title: "How I RestKit"
-date: 2012-05-17 13:28
-comments: true
 tags: [code, ios, obj-c]
 ---
+
+*Note:* The post is quite outdated. Please use the manual on the official RestKit project website.
 
 In this short post I'll show how I use [RestKit](http://restkit.org) library in my iOS projects.
 
@@ -20,7 +19,7 @@ dependency 'RestKit/ObjectMapping/CoreData'
 dependency 'RestKit/ObjectMapping/JSON'
 ```
 
- 
+
 I also use [Injective](https://github.com/farcaller/Injective) dependency a lot, so I add `dependency 'Injective'` to my Podfile
 
 <!-- more -->
@@ -41,7 +40,7 @@ For initializing Injective library, edit your `AppDelegate.m`
     [IJContext setDefaultContext:[[IJContext alloc] init]];
 ```
 
- 
+
 What I also like doing, is initializing RestKit-s logging, so I can use it in my app and changing verbocity level from enviroment variables.
 
 ``` objc
@@ -50,7 +49,7 @@ RKLogInitialize();
 RKLogConfigureFromEnvironment();
 ```
 
- 
+
 Create class `RMApiConnector` which we will use for all our RestKit bootstrapping and network connections.
 
 ``` objc
@@ -74,21 +73,21 @@ injective_register_singleton(RMApiConnector)
 }
 ```
 
- 
-`injective_register_singleton` will add RMApiConnector to singleton collection on DI, so we will be able to access it like 
+
+`injective_register_singleton` will add RMApiConnector to singleton collection on DI, so we will be able to access it like
 
 ``` objc
 RMApiConnector *connector = [RMApiConnector injectiveInstantiate]
 ```
 
- 
+
 ## Setting up Object Loader
 
 ``` objc
 - (void)setupConnector {
     NSString *baseUrl = @"http://example.org/api/"
     RKObjectManager *manager = [RKObjectManager sharedManager];
-    
+
     if (!manager) {
         manager = [RKObjectManager objectManagerWithBaseURL:[RKURL URLWithString:baseUrl]];
         manager.client.serviceUnavailableAlertEnabled = YES;
@@ -99,17 +98,17 @@ RMApiConnector *connector = [RMApiConnector injectiveInstantiate]
 }
 ```
 
- 
+
 ## Setting up Object Mapping
 
 ``` objc
 - (void)setupMapping {
     RKObjectMappingProvider *omp = [RKObjectManager sharedManager].mappingProvider;
-    
+
     RKObjectMapping *productMapping = [RMProduct mapping];
     [omp addObjectMapping:productMapping];
     [omp setObjectMapping:productMapping forResourcePathPattern:@"/products"];
-    
+
     RKObjectMapping *shopMapping = [RMShop mapping];
     [omp addObjectMapping:shopMapping];
     [omp setObjectMapping:shopMapping forResourcePathPattern:@"/shops/:id"];
@@ -117,7 +116,7 @@ RMApiConnector *connector = [RMApiConnector injectiveInstantiate]
 }
 ```
 
- 
+
 The mapping itself I store with Models like
 
 ``` objc
@@ -138,7 +137,7 @@ The mapping itself I store with Models like
 @end
 ```
 
- 
+
 ``` objc
 @implementation RMShop
 
@@ -161,7 +160,7 @@ The mapping itself I store with Models like
 @end
 ```
 
- 
+
 ## Creating API requests
 
 Let's create few requests
@@ -176,7 +175,7 @@ Let's create few requests
                         nil];
 
     NSString *url = [@"/shops/near/:lat/:lng/:radius" interpolateWithObject:params];
-    
+
     RKObjectManager *manager = [RKObjectManager sharedManager];
     [manager loadObjectsAtResourcePath:url usingBlock:^(RKObjectLoader *loader) {
         loader.onDidLoadObjects = loadBlock;
@@ -189,12 +188,12 @@ Let's create few requests
 }
 ```
 
- 
+
 What we can see here, is that I'm using block-based API of RestKit. `loadBlock` will get array of loaded objects. `failBlock` will get `NSError` object on error. Also I'm using `fireErrorBlock:onErrorInResponse:` helper to get error message from my API
 
  ``` objc
 - (void)fireErrorBlock:(RKRequestDidFailLoadWithErrorBlock)failBlock onErrorInResponse:(RKResponse *)response {
-    
+
     if (![response isOK]) {
         id parsedResponse = [response parsedBody:NULL];
         NSString *errorText = nil;
@@ -209,7 +208,7 @@ What we can see here, is that I'm using block-based API of RestKit. `loadBlock` 
 }
 ```
 
- 
+
 What if we want to make a *POST* call? Easy. Just tell the loader `loader.method = RKRequestMethodPOST;` and pass `NSDictionary` *POST* params to `loader.params`
 
 ``` objc
@@ -222,7 +221,7 @@ RKObjectManager *manager = [RKObjectManager sharedManager];
                          nil];
 ```
 
- 
+
 What if we don't need to load any objects? Let's say we want to make client Authentication.
 
 ``` objc
@@ -234,18 +233,18 @@ What if we don't need to load any objects? Let's say we want to make client Auth
                           @"employee[password]", password,
                           nil];
         request.onDidLoadResponse = ^(RKResponse *response) {
-            
+
             id parsedResponse = [response parsedBody:NULL];
             NSString *token = [parsedResponse valueForKey:@"authentication_token"];
             //NSLog(@"response: [%@] %@", [parsedResponse class], parsedResponse);
-            
+
             if (token.length > 0) {
                 NSLog(@"response status: %d, token: %@", response.statusCode, token);
                 [[RKClient sharedClient] setValue:token forHTTPHeaderField:@"X-Rabatme-Auth-Token"];
-                
+
                 if (loadBlock) loadBlock(response);
             }
-            
+
             [self fireErrorBlock:failBlock onErrorInResponse:response];
         };
         request.onDidFailLoadWithError = failBlock;
@@ -253,7 +252,7 @@ What if we don't need to load any objects? Let's say we want to make client Auth
 }
 ```
 
- 
+
 ## Integrating CoreData
 Great. What about CoreData? Change *RMApiConnector*'s *init* method
 
@@ -265,7 +264,7 @@ Great. What about CoreData? Change *RMApiConnector*'s *init* method
     }
 ```
 
- 
+
 ``` objc
 - (void)setupDB {
     RKObjectManager *manager = [RKObjectManager sharedManager];
@@ -273,14 +272,14 @@ Great. What about CoreData? Change *RMApiConnector*'s *init* method
 }
 ```
 
- 
+
 For mapping Managed Objects you do
 
 ``` objc
 - (void)setupMapping {
     RKObjectManager *manager = [RKObjectManager sharedManager];
     RKObjectMappingProvider *omp = [RKObjectManager sharedManager].mappingProvider;
-    
+
     RKManagedObjectMapping *hotSpotMapping = [RKManagedObjectMapping mappingForClass:[HotSpot class] inManagedObjectStore:manager.objectStore];
     [hotSpotMapping mapAttributes:@"name", @"city", @"country", @"latitude", @"longitude", @"type", @"zipcode", nil];
     [hotSpotMapping mapKeyPathsToAttributes:
@@ -290,10 +289,10 @@ For mapping Managed Objects you do
      @"openinghours", @"openingHours",
      nil];
     hotSpotMapping.primaryKeyAttribute = @"hotSpotID";
-    
+
     [omp addObjectMapping:hotSpotMapping];
     [omp setObjectMapping:hotSpotMapping forResourcePathPattern:@"app/location"];
 ```
 
- 
+
 Now if Object Mapper will see that the object he's mapping is a `NSManagedObject` he will check the DB if the'r already object with same primaryId. If yes - he'll update it with new values, if no - he'll create one for you.

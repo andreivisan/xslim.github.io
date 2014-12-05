@@ -1,10 +1,9 @@
 ---
-layout: post
 title: "PHP to AD LDAP connection"
-date: 2011-12-27 16:11
-comments: true
 tags: [code, php]
 ---
+
+A short note to myself on how to do this
 
 ``` php
 <?php
@@ -23,7 +22,7 @@ if (!$this->ds) {
 }
 ```
 
- 
+
 
 <!-- more -->
 
@@ -52,10 +51,10 @@ public function searchUser($s) {
  include("pChart/pData.class");
 include("pChart/pChart.class");
 
-// Dataset definition 
+// Dataset definition
 $DataSet = new pData;
 $DataSet->AddPoint($data,"Serie1");
-$DataSet->AddPoint($legend,"Serie2"); 
+$DataSet->AddPoint($legend,"Serie2");
 $DataSet->AddAllSeries();
 $DataSet->SetAbsciseLabelSerie("Serie2");
 

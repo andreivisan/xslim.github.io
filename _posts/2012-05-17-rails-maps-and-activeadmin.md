@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Rails, Maps and ActiveAdmin"
-date: 2012-05-17 07:16
-comments: true
 tags: [ruby, rails, activeadmin, maps, gmap]
 ---
 
@@ -21,19 +18,19 @@ class Shop
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Spacial::Document
-  
+
   field :location, :type => Array, :spacial => {:lat => :lat, :lng => :lng, :return_array => true }
   index [[:location, Mongo::GEO2D]], :min => -180, :max => 180, :bits => 24, :background => true
 end
 ```
 
- 
+
 We need to change it a bit and add this things:
 
 ``` ruby
   include Gmaps4rails::ActsAsGmappable
   acts_as_gmappable :process_geocoding => false
-  
+
   def latitude
     location[1]
   end
@@ -43,7 +40,7 @@ We need to change it a bit and add this things:
   end
 ```
 
- 
+
 Now let's edit our `app/admin/shops.rb`
 
 ``` ruby
@@ -59,7 +56,7 @@ Now let's edit our `app/admin/shops.rb`
   end
 ```
 
- 
+
 If we will try to test it - we won't see a map, because ActiveAdmin is not auto loading our scripts and styles. So let's try fix that.
 
 First, we need to add gmaps4rails css & javascript files for loading.
@@ -70,7 +67,7 @@ First, we need to add gmaps4rails css & javascript files for loading.
 @import "gmaps4rails";
 ```
 
- 
+
 `app/assets/javascripts/active_admin.js`
 
 ``` javascript
@@ -78,11 +75,11 @@ First, we need to add gmaps4rails css & javascript files for loading.
 //= require gmaps4rails/gmaps4rails.googlemaps
 ```
 
- 
+
 Now, we need to make custom view for out maps, that will also load google-map javascript. Create file `app/views/gmaps4rails/_gmaps4rails.html.erb` With contents:
 
 ``` html
-<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=true'></script> 
+<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=true'></script>
 <script type="text/javascript" src='http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclusterer/1.0/src/markerclusterer_compiled.js'></script>
 
  <% case dom.map_provider %>
@@ -93,30 +90,29 @@ Now, we need to make custom view for out maps, that will also load google-map ja
 <% when "bing" %>
   <div id="<%= dom.map_id %>" class="<%= dom.map_class %>"></div>
 <% else %>
-<div class="<%= dom.container_class %>"> 
+<div class="<%= dom.container_class %>">
   <div id="<%= dom.map_id %>" class="<%= dom.map_class %>"></div>
 </div>
 <% end %>
- 
+
 
 <script type="text/javascript" charset="utf-8">
  <%=raw options.to_gmaps4rails %>
 </script>
 ```
 
- 
+
 Now if we test showing our model in ActiveAdmin, we will see a nice map. But let's add few more things. Edit your `Shop` model again and add this code:
 
 ``` ruby
   def gmaps4rails_title
     self.name
   end
-  
+
   def gmaps4rails_infowindow
     "<b>#{self.name}</b><br /><i>#{self.description}</i><br /><br />#{self.address}<br /><i>#{self.location.join(', ')}</i>"
   end
 ```
 
- 
-Now our markers will be clickable and will show nice info window. 
 
+Now our markers will be clickable and will show nice info window.

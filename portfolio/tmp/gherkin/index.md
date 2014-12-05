@@ -31,7 +31,7 @@ Below this line text is fully generated:
 
 ![Ordering](images/fa84612eb36d5404b9e201291b205999.png)
 
- ### Settings screen
+### Settings screen
 ![Settings screen](images/38f64f426a90b600085fb326603a18bf.png)
 
  - **Accessing Settings from app**
@@ -46,12 +46,12 @@ Below this line text is fully generated:
 
 ![Entering cities setting screen](images/3f1550ac31cd5824ea9429e4f3ce972e.png)
 
- ## UI Elements
+## UI Elements
 *Screens and actions*
 
 ![UI Screens and actions](images/1e33f55f77cb49bae2d1da918ed71ff3.png)
 
- 
+
 ## Use cases listing
 
 ``` gherkin
@@ -85,7 +85,7 @@ Feature: Cities
       And there should not be 'Kiev' city screen
 
   Scenario: Ordering
-    Given there are the existing cities 'Kiev', 'London' and 'Amsterdam' 
+    Given there are the existing cities 'Kiev', 'London' and 'Amsterdam'
       And I am on first city screen
      Then I should see 'Kiev' city screen
      When I enter cities setting screen
@@ -94,7 +94,7 @@ Feature: Cities
      Then I should see 'London' city screen
 ```
 
- 
+
 
 ``` gherkin
 Feature: Settings screen
@@ -125,5 +125,3 @@ Feature: Settings screen
      Then I should see 'Cities' screen
 
 ```
-
- 

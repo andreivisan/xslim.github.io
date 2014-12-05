@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "How to get iBooks Hightlihts"
-date: 2012-01-03
-comments: true
 tags: [code, sql]
 ---
 
@@ -10,9 +7,9 @@ So for example you want to get the highligtings from iBooks, what you need is fe
 
 * Get some app to mount iBooks Folder (like [PhoneDisk](http://www.macroplant.com/phonedisk/))
 * Download AEAnnotation sqlite database from Documents/storeFiles to some local folder
-* cd in that folder with your terminal application and execute 
+* cd in that folder with your terminal application and execute
 
-``` 
+```
 sqlite3 AEAnnotation_*_local.sqlite 'select `ZANNOTATIONSELECTEDTEXT`, `ZANNOTATIONASSETID` from `ZAEANNOTATION` where (`ZANNOTATIONSELECTEDTEXT` not NULL) order by `ZANNOTATIONASSETID`,`ZPLLOCATIONRANGESTART`'
 ```
 
@@ -27,7 +24,7 @@ You will see list of notes and Boor IDs to which they are associated
  sqlite3 AEAnnotation_*_local.sqlite 'select `ZANNOTATIONSELECTEDTEXT` from `ZAEANNOTATION` where (`ZANNOTATIONASSETID` = "06CA7575F9AACCAC5027272BA8926BB1") AND (`ZANNOTATIONSELECTEDTEXT` not NULL) order by `ZPLLOCATIONRANGESTART`'
 ```
 
- 
+
 And you will get your highlights !
 
 ## Few dev notes

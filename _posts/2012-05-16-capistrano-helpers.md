@@ -1,9 +1,6 @@
 ---
-layout: post
 title: "Capistrano helpers"
-date: 2012-05-16 16:37
-comments: true
-tags: [ruby, rails, capistrano] 
+tags: [ruby, rails, capistrano]
 ---
 
 While working on new rails project, I've made few lazy helpers for Capistrano `cap` command that I want to share. All of them are in my `deploy.rb` file.
@@ -24,7 +21,7 @@ namespace :local do
 end
 ```
 
- 
+
 Running remote bundle install
 
 ``` ruby
@@ -39,7 +36,7 @@ namespace :bundle do
 end
 ```
 
- 
+
 Restarting Thin server
 
 ``` ruby
@@ -53,7 +50,7 @@ namespace :thin do
 end
 ```
 
- 
+
 Helpers to syncing local and remote MongoDB
 
 ``` ruby
@@ -61,7 +58,7 @@ set :mongodbname_prod, 'ximity_me_development'
 set :mongodbname_dev, 'ximity_me_development'
 
 namespace :syncdb do
-  
+
   desc 'Synchronize MongoDB local -> production.'
   task :dev2prod, :hosts => "#{application}" do
     database = mongodbname_dev
@@ -71,13 +68,13 @@ namespace :syncdb do
     system "tar -cjf #{filename} dump/#{database}"
     upload filename, "#{shared_path}/#{filename}"
     system "rm -rf #{filename} | rm -rf dump"
-    
+
     database = mongodbname_prod
     run "tar -xjvf #{shared_path}/#{filename}"
     run "/usr/local/bin/mongorestore #{fetch(:db_drop, '')} -db #{database} dump/#{dev_database}"
     run "rm -rf dump"
   end
-  
+
   desc 'Synchronize MongoDB production -> local.'
   task :prod2dev, :hosts => "#{application}" do
     database = mongodbname_dev
@@ -87,21 +84,21 @@ namespace :syncdb do
     run "cd #{shared_path} && tar -cjf #{filename} dump/#{database}"
     download "#{shared_path}/#{filename}", "#{filename}"
     run "cd #{shared_path} && rm -rf #{filename} | rm -rf dump"
-    
+
     database = mongodbname_prod
     system "tar -xjvf #{filename}"
     system "/usr/local/bin/mongorestore #{fetch(:db_drop, '')} -db #{database} dump/#{dev_database}"
     system "rm -rf #{filename}"
     system "rm -rf dump"
   end
-  
+
   desc 'Generate indexes.'
   task :reindex, :host => "#{application}" do
     run "cd #{current_path} && bundle exec rake db:mongoid:create_indexes --trace"
   end
-  
+
 end
 ```
 
- 
+
 Do you have any useful helpers for `cap` ?

@@ -1,10 +1,6 @@
 ---
-layout: post
-published: true
 title: Google Maps JavaScript API Cookbook Review
-comments: true
-description: null
-tags: 
+tags:
   - review
 ---
 
@@ -18,4 +14,4 @@ The beginning of this book can seem a bit overloaded: the table of contents is e
 
 Although the highly technicians authors have a lot of experience in mapping and geodesic fields, the book is an easy and pleasant read. Every example has one or more screenshots of what readers can expect; extensive explanations of what should be done; and the *How it works* section, which I enjoy the most. The book is useable for both newbies and more professional developers with its short explanations on HTML and Java Script for the former and some heavy mapping recipes for the latter.
 
-I definitely enjoyed reading the book and would recommend it for others. 
+I definitely enjoyed reading the book and would recommend it for others.

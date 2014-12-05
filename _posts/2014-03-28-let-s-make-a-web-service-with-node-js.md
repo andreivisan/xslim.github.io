@@ -1,10 +1,6 @@
 ---
-layout: post
-published: true
 title: "Let's make a Web-service with Node.js"
-comments: true
-description: null
-tags: 
+tags:
   - nodejs
   - javascript
   - coffeescript
@@ -25,7 +21,7 @@ var express = require('express'),
     app = express(),
     http = require('http'),
     fs = require('fs');
-    
+
 app.get("/", function(req, res, next) {
   fs.readFile('README.md', function(err, data) {
     res.writeHead(200, {"Content-Type": "text/plain"});
@@ -54,7 +50,7 @@ app.get "/", (req, res, next) ->
   fs.readFile 'README.md', (err, data) ->
     res.writeHead 200, "Content-Type": "text/plain"
     res.end data
-    
+
 app.listen process.env.PORT or 3000
 ```
 
@@ -116,15 +112,15 @@ app.get "/map/:lat,:lon,:zoom/:size", (req, res) ->
   lat = req.param("lat")
   lon = req.param("lon")
   zoom = req.param("zoom")
-  
+
   size = req.param("size")
   size = size.split("x")
   w = size[0]
   h = size[1]
-  
+
   url = "http://maps.googleapis.com"
   url += "/maps/api/staticmap?center=" + lat + "," + lon + "&zoom=" + zoom + "&size=" + w + "x" + h + "&sensor=false"
-  
+
   proxyTo url, res
 ```
 

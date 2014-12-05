@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Reverse-engineering iOS app"
-date: 2013-02-11 18:02
-comments: true
 tags: [code, ios, obj-c, hacking]
 ---
 
@@ -12,17 +9,17 @@ Then we suddenly spotted an app, that could do all that cool things. That was th
 
 ## The Beginning Is the End Is the Beginning
 
-For sake of convinience, let's call tha app that we'r interested in `iApp`. We downloaded the app from AppStore, renamed `.ipa` to `.zip`, and started looking inside. 
+For sake of convinience, let's call tha app that we'r interested in `iApp`. We downloaded the app from AppStore, renamed `.ipa` to `.zip`, and started looking inside.
 
-First of all, we opened `Info.plist`. And found a quite interesting string `network-authentication` for `Required background modes`. Google gave us 0 results. 
+First of all, we opened `Info.plist`. And found a quite interesting string `network-authentication` for `Required background modes`. Google gave us 0 results.
 
-Next thing, I checked `iApp.entitlements` file. And found there a nice key `com.apple.developer.CaptiveNetworkPlugin` saying `YES`. That was something. 
+Next thing, I checked `iApp.entitlements` file. And found there a nice key `com.apple.developer.CaptiveNetworkPlugin` saying `YES`. That was something.
 
 <!-- more -->
 
 ## Disassembling
 
-I wanted to check if the app uses some privete libraries or methods related to `CaptiveNetwork`. To find that out, I used [Hopper Disassembler](http://hopperapp.com). For checking the app disassembly, the Demo version is quite good. 
+I wanted to check if the app uses some privete libraries or methods related to `CaptiveNetwork`. To find that out, I used [Hopper Disassembler](http://hopperapp.com). For checking the app disassembly, the Demo version is quite good.
 
 After some digging I found a notice of using some `Plugin`
 
@@ -70,7 +67,7 @@ That gave me idea of usage of some private `CaptiveNetwork` library. I found one
 000016f0 T _CNProberGetTypeID
 ```
 
- 
+
 which looked quite interesting. So not thinking for so long, I opened the library in disassembly:
 
 ![](/images/2013-02-11/2.png)
@@ -103,7 +100,7 @@ CFStringRef ssids[2] = { CFSTR("OurWiFi"), CFSTR("NeighboursWiFi") };
         NSLog(@"Error: Failed to register supported network SSIDs");
     }
     CFRelease(arr_ssids);
-    
+
 // Find network interfaces by CNCopySupportedInterfaces()
 NSString* interface = @"en0";  // or hard code it
 
@@ -118,12 +115,12 @@ BOOL x = CNNetworkWasAutoJoined((__bridge CFDictionaryRef)(networkDetails));
 NSLog(@"X: %d", x);
 ```
 
- 
-Now everything seems working till the last one. If we'll check debugger, we're getting the `bundle`, we're getting the private function in `CNNetworkWasAutoJoined`, but we'r getting crash when we try using it. It seems the `networkDetails` doesn't contain the needed information. 
+
+Now everything seems working till the last one. If we'll check debugger, we're getting the `bundle`, we're getting the private function in `CNNetworkWasAutoJoined`, but we'r getting crash when we try using it. It seems the `networkDetails` doesn't contain the needed information.
 
 ## The End Is the Beginning Is the End
 
-Well, idea of putting `com.apple.developer.CaptiveNetworkPlugin` to `Entitlments` did'nt work. There need to be a valid Provisioning profile for this thing. And the valid one can be issued only by Apple. 
+Well, idea of putting `com.apple.developer.CaptiveNetworkPlugin` to `Entitlments` did'nt work. There need to be a valid Provisioning profile for this thing. And the valid one can be issued only by Apple.
 
 So it brings us to idea that the creators of this `iApp`
  got in contact with Apple, and got a special priviledges for their app. Well, we also contacted Apple, but still no response from their side.

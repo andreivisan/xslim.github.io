@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Userscripts and Apple dev site"
-date: 2012-07-13 11:34
-comments: true
 tags: [javascript,code,apple]
 ---
 

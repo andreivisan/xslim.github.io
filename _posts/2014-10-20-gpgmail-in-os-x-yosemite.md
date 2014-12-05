@@ -1,10 +1,6 @@
 ---
-layout: post
-published: true
 title: GPGMail in OS X Yosemite
-comments: true
-description: null
-tags: 
+tags:
   - yosemite
 ---
 

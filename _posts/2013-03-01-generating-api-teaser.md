@@ -1,9 +1,6 @@
 ---
-layout: post
 title: "Generating API - teaser"
-date: 2013-03-01 19:35
-comments: true
-tags: 
+published: false
 ---
 
 ![](/images/2013-03-01/seq_scruffy.png)
@@ -38,8 +35,8 @@ mocks:
       fixture: "pickups.json"
 ```
 
- 
-Now imagine you make a stubs from it, in runtime, on iOS ans Android.. and Ruby... 
+
+Now imagine you make a stubs from it, in runtime, on iOS ans Android.. and Ruby...
 
 Or you generate API documentation...
 
@@ -51,7 +48,7 @@ seqdiag -Tsvg seq.diag > seq.svg
 ./svg2png.sh seq.svg
 ```
 
- 
+
 And you get a Sequence diagram!
 
 ![](/images/2013-03-01/seq_def.png)
@@ -62,7 +59,7 @@ And after a few additional tricks...
  ./svg2scruffy.rb seq.svg > seq_scruffy.svg
 ```
 
- 
+
 You can get a fun "hand-drawn" diagram
 
 ![](/images/2013-03-01/seq_scruffy.png)

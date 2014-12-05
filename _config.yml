@@ -1,135 +1,50 @@
+# Site settings
 title: taras kalapun
-subtitle: 
+email: t@kalapun.com
 author: Taras Kalapun
-simple_search: http://google.com/search
-tagline:          
-description:      ""
-
-# Your site's domain goes here. Leave localhost server or blank when working locally.
-url:              http://kalapun.com
-
-safe:        true
-future:      true
-lsi:         false
-pygments:    true
-markdown:    redcarpet
-
-date_format: "ordinal"
-
-subscribe_rss: /atom.xml
-subscribe_email:
-# RSS feeds can list your email address if you like
-email:
-
-permalink: /blog/:year/:month/:day/:title/
-relative_permalinks: false
-
-paginate: 10
-paginate_path: "blog/page/:num"
-recent_posts: 5
-
-excerpt_separator: "<!-- more -->"
-excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
-
-titlecase: true       # Converts page and post titles to titlecase
-
-logo:             
-disqus_shortname: xslim-github
-
-# Facebook Like
-facebook_like: false
-
-# Gravatar plugin
-gravatar_hash: 4374a44a5a6642a24ac2975b9aa2dfe7
-     
-  # For Google Authorship https://plus.google.com/authorship
-  # google_plus:    "http://plus.google.com/+TarasKalapun"
-
-# feed: http://feeds.feedburner.com/RestlessPoint
+description: An it-problem solver and adrenaline junky. Sailing, skydiving, scuba diving, motorcycling and off-road racing are just someways I get away from the programming screen.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://kalapun.com" # the base hostname & protocol for your site
 
 google_analytics: UA-2087894-2
-google_verify: 
-bing_verify:   
-alexa_verify:
 
+permalink: /posts/:title/
+relative_permalinks: false
 
-maruku:
-  use_tex:    false
-  use_divs:   false
-  png_engine: blahtex
-  png_dir:    images/latex
-  png_url:    /images/latex
+markdown: redcarpet
+redcarpet:
+  extensions: ["tables", "autolink"]
 
-rdiscount:
-  extensions: [smart]
+highlighter: pygments
 
-## redcarpet
-## fenced_code_blocks
+gems:
+  - jekyll-redirect-from #https://help.github.com/articles/redirects-on-github-pages
 
-kramdown:
-  input: GFM
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..2
-  use_coderay: false
-  
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+    layout: project
 
-include: [".htaccess"]
-exclude: ["vendor",".bundle","lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "codekit-config.json", "Gemfile", "Gemfile.lock", "README.md", "node_modules", "Gruntfile.js", "package.json"]
+defaults:
+  -
+    scope:
+      type: "posts"
+    values:
+      layout: "post"
+      category: "posts"
+  -
+    scope:
+      path: "projects"
+      type: "projects"
+    values:
+      layout: "project"
 
- # Prose settings
-prose:
-  rooturl: '_posts'
-  siteurl: "http://kalapun.com"
-  relativeLinks: 'http://kalapun.com/api/prose/links.jsonp'
-  media: 'images'
-  ignore:
-    - /_layouts
-    - /_includes
-  metadata:
-    _posts:
-      - &pm_layout
-        name: "layout"
-        field:
-          element: "hidden"
-          value: "post"
-      - &pm_title
-        name: "title"
-        field:
-          element: "text"
-          label: "Title"
-          placeholder: "Title of a post"
-      - &pm_published
-        name: "published"
-        field:
-          label: "Published"
-          element: "checkbox"
-          value: true
-      - &pm_comments
-        name: "comments"
-        field:
-          label: "Allow comments"
-          element: "checkbox"
-          value: true
-      - &pm_tags
-        name: "tags"
-        field:
-          element: "multiselect"
-          label: "Add Tags"
-          placeholder: "Choose Tags"
-          options: "http://restlesspoint.com/api/prose/tags.jsonp"
-          alterable: true
-      - &pm_description
-        name: "description"
-        field:
-          element: "textarea"
-          label: "Description"
-          placeholder: "An article description that will be shown on homepage"
-          value: ""
-      - name: "categories"
-        field:
-          element: "multiselect"
-          label: "Categories"
-          alterable: true
-
+social:
+  email: mailto:t@kalapun.com
+  phone: tel:+31621695865
+  github: http://github.com/xslim
+  linkedin: http://linkedin.com/in/tkalapun
+  facebook: http://facebook.com/tkalapun
+  flickr: http://flickr.com/xslim
+  rss: http://feeds.feedburner.com/kalapun

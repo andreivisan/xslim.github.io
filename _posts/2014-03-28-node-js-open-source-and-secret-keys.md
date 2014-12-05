@@ -1,10 +1,6 @@
 ---
-layout: post
-published: true
 title: "Node.js, Open source and Secret Keys"
-comments: true
-description: null
-tags: 
+tags:
   - nodejs
   - config
   - env

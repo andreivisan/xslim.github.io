@@ -1,10 +1,6 @@
 ---
-layout: post
-published: true
-title: More JavaScriptCore benchmarking
-comments: true
-description: null
-tags: 
+title: More JavaScriptCore benchmarking on iOS7
+tags:
   - javascript
   - objc
   - benchmarking
@@ -50,7 +46,7 @@ I've wrote my simple mapper that maps json to objects and has ability to specify
 For single object the difference is not that big:
 
 ```
-:Name                    :Total(s)  :Avg.(s) 
+:Name                    :Total(s)  :Avg.(s)
 -[x test_benchM1_Mantle] 0.03335    0.00033    (1/100)
 -[x test_benchM1_JS]     0.02366    0.00024    (1/100)
 ```
@@ -58,11 +54,11 @@ For single object the difference is not that big:
 For Array of 150 objects the difference is more vizible:
 
 ```
-:Name                    :Total(s)  :Avg.(s) 
+:Name                    :Total(s)  :Avg.(s)
 -[x test_benchMA_Mantle] 1.11922    0.01119    (1/100)
 -[x test_benchMA_JS]     0.93283    0.00933    (1/100)
 ```
-Yes, JS is faster. 
+Yes, JS is faster.
 
 ## Hasher
 
@@ -77,4 +73,3 @@ So of course, the Objective-C implementation works faster, but still, the JS is 
 -[HmacBenchmarkTestCase test_benchOCHasher]        0.00261    0.00003    (1/100)
 -[HmacBenchmarkTestCase test_benchJSHasher]        0.04126    0.00041    (1/100)
 ```
-

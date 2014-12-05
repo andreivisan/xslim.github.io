@@ -1,12 +1,9 @@
 ---
-layout: post
-title: "Routes and embedded documents"
-date: 2012-08-30 14:40
-comments: true
+title: "Rails routes and mongoid embedded documents"
 tags: [ruby,rails,mongoid,embedded]
 ---
 
-Following my previous post [Mongoid custom relation between embedded documents](http://kalapun.com/blog/2012/08/29/mongoid-custom-relation-between-embedded-documents/)
+Following my previous post [Mongoid custom relation between embedded documents](http://kalapun.com/posts/mongoid-custom-relation-between-embedded-documents/)
 
 Interesting how to set-up Routes and MVC for embedded documents? I'll try to tell you how I did it.
 
@@ -20,9 +17,6 @@ class Event
 end
 ```
 
- 
-
-<!-- more -->
 
 ## Routing
 
@@ -35,7 +29,7 @@ In `routes.rb`
   end
 ```
 
- 
+
 Now we can access the `Acts` and `Areas` with urls like `/events/:event_id/acts/`,  `/events/:event_id/acts/:id`, and same for `areas`
 
 To see the all the routes you can use command `rake routes` in terminal
@@ -47,7 +41,7 @@ In all controllers for embedded documents, we need to have access to parent docu
 ``` ruby
 class ActsController < ApplicationController
   before_filter :check_event!
-  
+
     def check_event!
     @event = Event.find(params[:event_id]) rescue nil
 
@@ -57,7 +51,7 @@ class ActsController < ApplicationController
   end
 ```
 
- 
+
 And also we need to change the actions to use our parent document
 
 ``` ruby
@@ -72,7 +66,7 @@ And also we need to change the actions to use our parent document
   end
 ```
 
- 
+
 Also, we need to change the creation method, so the child document will be added to the parent
 
 ``` ruby
@@ -91,7 +85,7 @@ Also, we need to change the creation method, so the child document will be added
   end
 ```
 
- 
+
 Notice the adding code `@event.acts << @act` and  the redirect code `redirect_to [@event, @act]`
 
 ## Views
@@ -104,7 +98,7 @@ For every `link_to` in your view, you need to add relation to `Event` document, 
 = link_to 'New Act', new_event_act_path
 ```
 
- 
+
 For forms, I'm using `simple_form` gem, but basicaly the only thing you need to change is to put the `@event` there
 
 ``` ruby
@@ -112,6 +106,5 @@ For forms, I'm using `simple_form` gem, but basicaly the only thing you need to 
   # inputs go here
 ```
 
-   
-  
+
 I hope this short post will help you getting started...

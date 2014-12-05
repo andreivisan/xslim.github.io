@@ -1,10 +1,6 @@
 ---
-layout: post
-published: true
 title: "Some things I did while mobile-developing"
-comments: true
-description: null
-tags: 
+tags:
   - apps
   - mobile
   - coding
@@ -50,5 +46,3 @@ PHP, Ruby on Rails, Node.JS and a bit of Python. MongoDB, MySQL, Redis and other
 - custom CaptivePortal with Authentication & Authorization for connecting Facebook, user data, RADIUS (in cloud), WiFi access-points & mobile devices (WISPr)
 
 Most of projects I did myself, some of them with another developer. I'll add more when I'll remember :)
-
-Questions?

@@ -1,9 +1,7 @@
 ---
-layout: post
 title: "History of my CB600F"
-date: 2011-02-13
-comments: true
 tags: [moto, tuning]
+published: false
 ---
 
 История моего Honda CB 600 F

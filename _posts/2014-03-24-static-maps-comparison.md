@@ -1,10 +1,6 @@
 ---
-layout: post
-published: true
 title: Static Maps comparison
-comments: true
-description: null
-tags: 
+tags:
   - maps
 ---
 

@@ -1,16 +1,12 @@
 ---
-layout: post
-published: true
 title: Liquid tag management for Jekyll
-comments: true
-description: null
-tags: 
+tags:
   - jekyll
   - html
   - liquid
 ---
 
-Hosting a Jekyll site on GitHub Pages is cool but a bit limited. You can't use ruby code. But you can use [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers) template tags. 
+Hosting a Jekyll site on GitHub Pages is cool but a bit limited. You can't use ruby code. But you can use [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers) template tags.
 
 So her's a few hacks how to make a tag management for your blog:
 
@@ -39,12 +35,12 @@ And you might add some style to it:
   .tags {
     list-style: none;
     padding: 0;
-    text-align: justify; 
+    text-align: justify;
     font-size: 20px;
   }
   .tags li {
     display: inline-block;
-    margin: 0 25px 25px 0; 
+    margin: 0 25px 25px 0;
   }
 ```
 

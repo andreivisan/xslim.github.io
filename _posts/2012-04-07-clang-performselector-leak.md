@@ -1,9 +1,6 @@
 ---
-layout: post
 title: "CLANG performSelector leak"
-date: 2012-04-07 17:16
-comments: true
-tags: [code, obj-c] 
+tags: [code, obj-c]
 ---
 
 If you ever get a compiler warning *performSelector may cause a leak because its selector is unknown* you can suppress it in LLVM 3.0:
@@ -14,5 +11,3 @@ If you ever get a compiler warning *performSelector may cause a leak because its
     [self.target performSelector:@selector(someAction:) withObject:self];
 #pragma clang diagnostic pop
 ```
-
- 

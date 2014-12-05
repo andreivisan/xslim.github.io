@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Rails - SQLite and PostgreSQL playing nice together"
-date: 2013-02-12 16:57
-comments: true
 tags: [ruby, rails, sqlite, postgresql]
 ---
 
@@ -27,7 +24,7 @@ test: &test
   timeout: 5000
 ```
 
- 
+
 And don't forget to run `rake db:reset` and `rake db:seed` to set your new DB and seed it with data.
 
 <!-- more -->
@@ -46,25 +43,25 @@ group :production do
 end
 ```
 
- 
+
 ## SQL stuff
 
 PostgreSQL has some SQL addons, that SQLite doesn't. Some of them can be changed to DB-agnostic style, and some of them - can be skipped for development.
 
-As the first example, we have a query like 
+As the first example, we have a query like
 
 ``` ruby
 Thing.where("#{key} ilike ?", "%#{value}%")
 ```
 
- 
+
 You see this `iLike` keyword, don't you? Well the thing is, putting DB-agnostic query is even faster than native `ILIKE`. So change it to `lower(x) like lower(y)`:
 
 ``` ruby
 Thing.where("lower(#{resource_class.table_name}.#{key}) LIKE lower(?)", "%#{value}%")
 ```
 
- 
+
 Next one is `INDEX`. PostgreSQL has an addition with `WHERE`, but SQLite doesnt. But for development purposes, we don't care.
 
 ``` ruby
@@ -75,7 +72,7 @@ Next one is `INDEX`. PostgreSQL has an addition with `WHERE`, but SQLite doesnt.
   end
 ```
 
- 
+
 This will use the proper SQL query depending on enviroment it runs.
 
 ## Dates
@@ -112,18 +109,18 @@ class AdapterSpecific
       else
         "datetime('now', '-#{modifier}')"
       end
-    end    
+    end
 
   end
 end
 ```
 
- 
+
 Put it as `lib/adapter_specific.rb`, edit your `config/initializers/application.rb` and add on top `require 'adapter_specific'`. Then change your SQL queries to be like one below:
 
 ``` ruby
 Thing.where("updated_at > #{AdapterSpecific.before('5 days')}").limit(20)
 ```
 
- 
+
 Hope this short post will help you in playing with RoR apps.`
