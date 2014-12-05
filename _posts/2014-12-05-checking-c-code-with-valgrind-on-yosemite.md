@@ -8,7 +8,7 @@ Coding in C can be hard. Specially finding a memory leaks after. The help can be
 ## Installing
 On Yosemite, we need to rebuild the Valgrind from scratch. To do so, get the source code from the SVN trunk and re-build it:
 
-``` shell
+``` bash
 svn co svn://svn.valgrind.org/valgrind/trunk valgrind
 cd valgrind
 ./autogen.sh
@@ -40,7 +40,7 @@ For the Valgrind to show you where exactly in your code the problem is, it needs
 
 Now build the project, and open the build directory (Somewhere in `~/Library/Developer/Xcode/DerivedData/test-some-hash/Build/Products/Debug`) in the terminal. Try running it to see that it works: `./test` should output `Output: test`. Now run it with Valgrind:
 
-``` shell
+``` bash
 valgrind --leak-check=yes ./test
 ```
 
@@ -72,7 +72,7 @@ To suppress the Valgrind output, you will need to have the `supp` file, and you 
 
 Run the app line this:
 
-``` shell
+``` bash
 valgrind --leak-check=yes --gen-suppressions=yes ./test
 ```
 
