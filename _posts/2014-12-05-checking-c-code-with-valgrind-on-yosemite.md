@@ -105,3 +105,7 @@ Pressing `Y` will show the suppression block, that we can trim a bit, give it a 
 Next time, you can run the app specifying the `supp` file, and Valgrind will skip that blocks.
 
 My suppression for Objective-C can be found in a [gist](https://gist.github.com/xslim/ab46a930a956fac27f65). Feel free to propose changes.
+
+## Useful links
+- [Quick Start Guide](http://valgrind.org/docs/manual/quick-start.html#quick-start.intro)
+- [Using Valgrind to Find Memory Leaks and Invalid Memory Use](http://www.cprogramming.com/debugging/valgrind.html)
