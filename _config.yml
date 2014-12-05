@@ -48,3 +48,20 @@ social:
   facebook: http://facebook.com/tkalapun
   flickr: http://flickr.com/xslim
   rss: http://feeds.feedburner.com/kalapun
+
+
+prose:
+  siteurl: "http://emilyvernon.com"
+  ignore:
+    - /_layouts
+    - /_includes
+    - /_sass
+    - /css
+    - /fonts
+  metadata:
+    _posts:
+      - name: "published"
+        field:
+          label: "Published"
+          element: "checkbox"
+          value: true
