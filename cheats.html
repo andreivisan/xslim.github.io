@@ -1,0 +1,21 @@
+---
+layout: default
+permalink: /cheats/
+---
+
+<div class="home">
+
+  <!-- <h1 class="page-heading">Latest Posts</h1> -->
+
+  <ul class="listing">
+    {% for page in site.cheats %}
+    {% if page.path contains '.md' %}
+    {% capture title %}{{ page.path | remove:'/repo/' | remove:'.md' | capitalize }}{% endcapture %}
+      <li>
+        <a href="{{ page.url }}">{{ title }}</a>
+      </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+
+</div>
