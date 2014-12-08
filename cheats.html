@@ -1,20 +1,15 @@
 ---
-layout: default
+layout: page
+title: Cheat sheets
 permalink: /cheats/
 ---
 
-<div class="home">
-
-  <!-- <h1 class="page-heading">Latest Posts</h1> -->
-
-  <ul class="listing">
-    {% for page in site.cheats %}
-    {% if page.path contains '.md' %}
-      <li>
-        <a href="{{ page.url }}">{{ page.title }}</a>
-      </li>
-    {% endif %}
-    {% endfor %}
-  </ul>
-
-</div>
+<ul class="listing">
+  {% for page in site.cheats %}
+  {% if page.path contains '.md' %}
+    <li>
+      <a href="{{ page.url }}">{{ page.title }}</a>
+    </li>
+  {% endif %}
+  {% endfor %}
+</ul>
