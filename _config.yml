@@ -25,10 +25,10 @@ collections:
     output: true
     permalink: /projects/:path/
     layout: project
-  cheats:
-    output: true
-    permalink: /cheats/:path/
-    layout: post
+#  cheats:
+#    output: true
+#    permalink: /cheats/:path/
+#    layout: post
 
 defaults:
   -
@@ -43,12 +43,12 @@ defaults:
       type: "projects"
     values:
       layout: "project"
-  -
-    scope:
-      path: "cheats"
-      type: "cheats"
-    values:
-      layout: "page"
+#  -
+#    scope:
+#      path: "cheats"
+#      type: "cheats"
+#    values:
+#      layout: "page"
 
 social:
   email: mailto:t@kalapun.com
