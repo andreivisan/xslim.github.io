@@ -25,6 +25,10 @@ collections:
     output: true
     permalink: /projects/:path/
     layout: project
+  cheats:
+    output: true
+    permalink: /cheats/:path/
+    layout: page
 
 defaults:
   -
