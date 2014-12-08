@@ -1,0 +1,3 @@
+[submodule "cheats"]
+  path = _cheats
+  url = https://github.com/xslim/cheats.git
