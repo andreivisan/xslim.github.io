@@ -30,6 +30,8 @@ collections:
     permalink: /cheats/:path/
     layout: page
 
+exclude: ['_cheats/README.md']
+
 defaults:
   -
     scope:

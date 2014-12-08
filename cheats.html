@@ -10,7 +10,6 @@ permalink: /cheats/
   <ul class="listing">
     {% for page in site.cheats %}
     {% if page.path contains '.md' %}
-    {% capture title %}{{ page.path | remove:'/repo/' | remove:'.md' | capitalize }}{% endcapture %}
       <li>
         <a href="{{ page.url }}">{{ title }}</a>
       </li>
