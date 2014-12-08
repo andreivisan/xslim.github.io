@@ -1,5 +1,5 @@
 ## Commands
-- up
+- `up`
 
 ## Config 
 
