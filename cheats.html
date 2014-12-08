@@ -1,0 +1,15 @@
+---
+layout: page
+title: Cheats
+---
+
+
+<ul class="listing">
+  {% for post in site.cheats %}
+  <li>
+  <a href="{{ post.url | prepend: site.baseurl }}">{{ post.path }}</a>
+  <span>{{ post.title }}</span>
+  </li>
+  {% endfor %}
+</ul>
+
