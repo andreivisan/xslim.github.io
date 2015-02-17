@@ -56,7 +56,7 @@ BTW, We could also lookup the line number, knowing what function should be there
 Summary: ADYTransactionProcessor.o`-[ADYStatusTenderResponse numericState]
 ```
 
-*UPDATE:* As noted by a friend of mine @0xced, another way to get the info about the address is like so:
+*UPDATE:* As noted by a friend of mine, another way to get the info about the address is like so:
 
 ```
 atos -arch armv7 -o ADYTransactionProcessor.o 0x00004068
