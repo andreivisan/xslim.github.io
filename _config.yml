@@ -19,6 +19,7 @@ highlighter: pygments
 
 gems:
   - jekyll-redirect-from #https://help.github.com/articles/redirects-on-github-pages
+  - jekyll-mentions
 
 collections:
   projects:
