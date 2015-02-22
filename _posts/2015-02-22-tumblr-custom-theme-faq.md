@@ -12,7 +12,7 @@ title: Tumblr Custom Theme FAQ
 6. If you don't have the ability to edit the HTML, go down, and click "_Advanced options_", there, you will find "_Add custom CSS_"
 
 ## How can I see what CSS styles are applied to the Element X on a page?
-[HTML Inspector](http://i.imgur.com/5jFE37r.png)
+![HTML Inspector](http://i.imgur.com/5jFE37r.png)
 1. Use a Safari or a Chrome.
 2. Right click on the element
 3. Select "_Inspect element_"
