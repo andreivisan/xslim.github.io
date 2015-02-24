@@ -1,5 +1,6 @@
 ---
 title: Liquid tag management for Jekyll
+redirect_from: "/blog/2014/01/27/liquid-tag-management-for-jekyll/"
 tags:
   - jekyll
   - html
