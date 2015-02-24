@@ -1,5 +1,6 @@
 ---
 title: More JavaScriptCore benchmarking on iOS7
+redirect_from: "/blog/2014/04/09/more-javascriptcore-benchmarking/"
 tags:
   - javascript
   - objc
