@@ -52,3 +52,27 @@ $on-laptop:        800px;
         "syntax-highlighting",
         "fonts"
 ;
+
+table {
+    background-color:transparent;
+    border-collapse:collapse;
+    border-spacing:0;
+    width:100%;
+    margin-bottom:20px;
+    table-layout:fixed;
+}
+th {
+    padding:4px 8px;
+    line-height:20px;
+    text-align:left;
+    vertical-align:bottom;
+    border-bottom:1px solid #e0e7eb;
+    font-weight:700;
+}
+td {
+    padding:4px 8px;
+    line-height:20px;
+    text-align:left;
+    vertical-align:top;
+    border-bottom:1px solid #e0e7eb;
+}
