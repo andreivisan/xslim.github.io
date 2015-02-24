@@ -1,6 +1,7 @@
 ---
 title: "How I RestKit"
 tags: [code, ios, obj-c]
+redirect_from: "/blog/2012/05/17/how-i-restkit/"
 ---
 
 *Note:* The post is quite outdated. Please use the manual on the official RestKit project website.
