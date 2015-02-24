@@ -1,6 +1,7 @@
 ---
 title: "Reverse-engineering iOS app"
 tags: [code, ios, obj-c, hacking]
+redirect_from: "/blog/2013/02/11/reverse-engineering-ios-app/"
 ---
 
 On one of projects I was involved in, we were implementing `Captive Login` technology, to automatically log in networks that have `Captive Portal` via `WISPr` technology. Everything went quite fine, except that on iOS, you can't do auto-login to WiFi network without user's permission. And the `CaptiveLogin` support is quite limited.
