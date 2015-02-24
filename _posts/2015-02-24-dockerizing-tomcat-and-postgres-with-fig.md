@@ -59,6 +59,7 @@ Some info:
 - `command` executes the custom script upon start. _NOTE:_ The last command should output something, or Fig will stop the container. `tail -f catalina.out` will do the job.
 - `links` tells what other containers shoul be linked. You will also get the environment variables like `DB_PORT_5432_TCP`, which we will use in our script.
 - `ports` tells what ports to map from container into host OS.
+- `image` tells what public image from [Docker Hub](https://registry.hub.docker.com) to use.
 
 The `start.sh` script will look like this:
 
