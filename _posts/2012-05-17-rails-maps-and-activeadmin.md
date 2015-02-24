@@ -1,5 +1,6 @@
 ---
 title: "Rails, Maps and ActiveAdmin"
+redirect_from: "/blog/2012/05/17/rails-maps-and-activeadmin/"
 tags: [ruby, rails, activeadmin, maps, gmap]
 ---
 
