@@ -1,5 +1,6 @@
 ---
 title: iOS and JavaScript First try
+redirect_from: "/blog/2014/03/26/ios-and-javascript-first-try/"
 tags:
   - iOS
   - "obc-c"
