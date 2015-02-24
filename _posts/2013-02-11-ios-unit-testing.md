@@ -1,5 +1,6 @@
 ---
 title: "iOS Unit testing"
+redirect_from: "/blog/2013/02/11/ios-unit-testing/"
 tags: [code, ios, obj-c, testing, tdd]
 ---
 
