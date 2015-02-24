@@ -100,7 +100,9 @@ VBoxManage modifyvm "boot2docker-vm" --natpf1 "tcp-port5432,tcp,,5432,,5432";
 
 If you'r on a Mac, make sure the boot2docker VM is started - `boot2docker start`. Next, make sure that the environment is properly set by running `$(boot2docker shellinit)`.
 
-Run `fig up` and watch the Fig will start the `db` and `web` containers and outputs the log into the console. Now you can open your browser on `localhost:8080` and see your Tomcat app.
+Run `fig up` and watch the Fig will start the `db` and `web` containers and outputs the log into the console. You could run `docker build .` to build your `Dockerfile`, but fig will do it for you. 
+
+Now you can open your browser on `localhost:8080` and see your Tomcat app.
 
 You can connect to any container from other shell by running `docker exec -i -t test_web_1 bash` (or `_db_1`)
 
