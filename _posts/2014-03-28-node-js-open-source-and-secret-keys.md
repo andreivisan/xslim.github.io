@@ -15,6 +15,12 @@ $ heroku config
 KEY_MAPBOX:    xxx.yyy
 ```
 
+BTW, if you want to connect your folder to the app do this:
+
+``` sh
+heroku git:remote -a project
+```
+
 Now, you can use it in Node.js app with `key = process.env.KEY_MAPBOX`. But what about time when you develop your app? Setting it via bash's `export` is not fun, so to help with this, ther's a small npm module `node-env-file`. It uses `.env` file to pull the variables if they are not set:
 
 ``` coffee
