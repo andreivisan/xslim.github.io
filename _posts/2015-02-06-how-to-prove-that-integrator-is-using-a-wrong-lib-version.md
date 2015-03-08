@@ -19,7 +19,7 @@ And the Crash log looks like this:
 12 payleven-iPad                  0x00422699 -[ADYTransactionProcessor setFailureInfoFromResponse:] (ADYTransactionProcessor.m:732)
 ```
 
-So we see the problem is in file `ADYTransactionProcessor` on line `732`. So you go to your source code, you look the tag `1.10.10` and you look on that line, and gess what do you see - the code is not there, and you already included the check for that error. 
+So we see the problem is in file `ADYTransactionProcessor` on line `732`. So you go to your source code, you look the tag `1.10.10` and you look on that line, and guess what do you see - the code is not there, and you already included the check for that error. 
 
 Well, maybe when you made a build something *BAD* happened, and the old file got in? How can we tell this?
 
@@ -41,14 +41,14 @@ Now we check the crashed address `0x00422699`:
 (lldb)image lookup --address 0x00422699
 ```
 
-Nothing. BTW, to find out where the function is:
+Nothing. To find out where the function is:
 
 ```
 (lldb) image lookup -n setFailureInfoFromResponse:
 1 match found in ADYTransactionProcessor.o:
 Address: ADYTransactionProcessor.o[0x00004068] (ADYTransactionProcessor.o.__TEXT.__text + 16488)
 ```
-BTW, We could also lookup the line number, knowing what function should be there. For example, in 1.10.10, the line number 1320 should be in function `numericState`, while in the other version, it could be `statusIsFinal`:
+BTW, we could also lookup the line number, knowing what function should be there. For example, in 1.10.10, the line number 1320 should be in function `numericState`, while in the other version, it could be `statusIsFinal`:
 
 ```
 (lldb) image lookup -l 1320 -f ADYTransactionProcessor.m
@@ -56,7 +56,7 @@ BTW, We could also lookup the line number, knowing what function should be there
 Summary: ADYTransactionProcessor.o`-[ADYStatusTenderResponse numericState]
 ```
 
-*UPDATE:* As noted by a friend of mine, another way to get the info about the address is like so:
+*UPDATE:* As noted by a friend, another way to get the info about the address is like so:
 
 ```
 atos -arch armv7 -o ADYTransactionProcessor.o 0x00004068
