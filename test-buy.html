@@ -1,0 +1,47 @@
+
+---
+layout: default
+---
+
+<script>
+    
+    var bLoaded = false;
+        
+    function sel(el) {
+        return document.getElementById(el);
+    }
+    
+    function updateState(state) {
+        sel("state").innerHTML = state;
+    }
+    
+
+    
+    function adyenPay(amount, currency, title) {
+        var params = {
+            amount: amount,
+            currency: currency,
+            title: title
+        };
+        WebViewJavascriptBridge.callHandler("adyenPay", params);
+    }
+
+                                   
+                                   
+</script>
+
+<div class="home">
+
+  <h1 class="page-heading">Test Shop in a WebView</h1>
+
+<i><div id="state">select product</div></i>
+
+<h3>Products</h3>
+    <table style="width: 100%">
+        <tr><th>What</th><th>Price</th><th>Action</th><tr>
+        <tr><td>Pen</td><td>0.01 $</td><td><a href="#" onclick="adyenPay(0.01, 'USD', 'Pen');">Buy!</td><tr>
+        <tr><td>Marker</td><td>2.01 $</td><td><a href="#" onclick="adyenPay(2.01, 'USD', 'Marker');">Buy!</td><tr>
+        <tr><td>Pencil</td><td>0.05 EUR</td><td><a href="#" onclick="adyenPay(0.05, 'EUR', 'Pencil');">Buy!</td><tr>
+    </table>
+
+</div>
