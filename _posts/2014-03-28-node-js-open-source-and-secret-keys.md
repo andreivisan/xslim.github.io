@@ -21,10 +21,23 @@ BTW, if you want to connect your folder to the app do this:
 heroku git:remote -a project
 ```
 
-Now, you can use it in Node.js app with `key = process.env.KEY_MAPBOX`. But what about time when you develop your app? Setting it via bash's `export` is not fun, so to help with this, ther's a small npm module `node-env-file`. It uses `.env` file to pull the variables if they are not set:
+Now, you can use it in Node.js app with `key = process.env.KEY_MAPBOX`. But what about time when you develop your app? Setting it via bash's `export` is not fun, so to help with this, ther's a small npm module `node-env-file`. 
 
-``` coffee
-env(__dirname + '/.env') if fs.existsSync(__dirname + '/.env' )
+``` sh
+npm install node-env-file --save
+```
+
+It uses `.env` file to pull the variables if they are not set:
+
+``` js
+var fs = require('fs'),
+    env = require('node-env-file')
+    
+if (fs.existsSync(__dirname + '/.env' )) {
+  env(__dirname + '/.env')
+}
+
+console.log("Secret: " + process.env.KEY_MAPBOX);
 ```
 
 <!-- more -->
