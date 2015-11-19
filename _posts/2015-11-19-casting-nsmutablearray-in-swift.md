@@ -3,7 +3,7 @@ published: true
 title: Casting NSMutableArray in Swift
 ---
 
-Sometimes bridging `Objective-C` into `Swift` is not as straight forward. As example, consider casting `NSMutableArray` of objects into Swift's `[String]`.
+Sometimes bridging `Objective-C` into `Swift` is not quite straight forward. For example, consider casting `NSMutableArray` of objects into Swift's `[String]`.
 
 So here are some examples how to do it.
 
